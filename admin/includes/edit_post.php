@@ -1,0 +1,86 @@
+<?php
+if (isset($_GET["p_id"])) {
+    if (!checkId($_GET["p_id"])) {
+        header("Location: posts.php");
+        return;
+    }
+    $query = $pdo->prepare("SELECT post_id from posts where post_id = :id");
+    $query->bindParam(":id", $_GET["p_id"]);
+    $query->execute();
+    $row = $query->fetch(PDO::FETCH_LAZY);
+    if (!$row) {
+        $_SESSION["error"] = "No given id in the database";
+        header("Location: posts.php");
+        return;
+    }
+}
+if (isset($_POST["edit_post"])) {
+    $post_image = $_FILES["post_image"]["name"];
+    $post_image_temp = $_FILES["post_image"]["tmp_name"];
+    move_uploaded_file($post_image_temp, "../images/{$post_image}");
+    if (empty($post_image)) {
+        $query = $pdo->prepare("SELECT post_image from posts where post_id = :id");
+        $query->bindParam(":id", $_REQUEST["post_id"]);
+        $query->execute();
+        $post_image = $query->fetch(PDO::FETCH_LAZY)["post_image"];
+    }
+    $values = ["post_id" => $_POST["post_id"], "title" => $_POST["post_title"], "cat_id" => $_POST["post_category_id"],
+    "author" => $_POST["post_author"], "image" => $post_image, "tags" => $_POST["post_tags"],
+    "content" => $_POST["post_content"], "status" => $_POST["post_status"]];
+    editPost($values, $pdo);
+}
+$query = $pdo->prepare("SELECT * from posts where post_id = :id"); // to fill the edit post form with values
+$query->bindParam(":id", $_GET["p_id"]);
+$query->execute();
+$row = $query->fetch(PDO::FETCH_LAZY);
+$post_status = $row["post_status"];
+$query = $pdo->prepare("SELECT * from category"); // to dynamically view categories
+$query->execute();
+?>
+<form action="" method="POST" enctype="multipart/form-data">
+    <div class = "form-group">
+        <label for = "post_title">Post Title</label>
+        <input type="text" id = "post_title" class = "form-control" name="post_title" value="<?=$row["post_title"]?>">
+    </div>
+    <div class = "form-group">
+        <label for = "post_category_id">Post Category</label><br>
+        <select name="post_category_id" id = "post_category_id">
+            <?php
+            while ($category = $query->fetch(PDO::FETCH_LAZY)) { // categories
+                $cat_id = $category["cat_id"];
+                $cat_title = $category["cat_title"];
+                echo "<option value = '{$cat_id}'>$cat_title</option>";
+            }
+            ?>
+        </select>
+    </div>
+    <div class = "form-group">
+        <label for = "post_author">Post Author</label>
+        <input type="text" id = "post_author" class = "form-control" name="post_author" value="<?=htmlspecialchars($row["post_author"])?>">
+    </div>
+    <div class = "form-group">
+        <label for = "post_image">Post Image</label><br>
+        <img width = "200" src="../images/<?=htmlspecialchars($row["post_image"])?>" alt = "Loading image">
+        <input type="file" name="post_image">
+    </div>
+    <div class = "form-group">
+        <label for = "post_tags">Post Tags</label>
+        <input type="text" id = "post_tags" class = "form-control" name="post_tags" value="<?=htmlspecialchars($row["post_tags"])?>">
+    </div>
+    <div class = "form-group">
+        <label for = "post_content">Post Content</label><br>
+        <textarea class = "form_control" id = "post_content" cols = "90" rows = "10" name = "post_content"><?=htmlspecialchars($row["post_content"])?></textarea>
+    </div>
+    <div class = "form-group">
+        <label for = "post_status">Post Status</label><br>
+        <select id="post_status" name="post_status">
+            <option value="draft" <?=$selected = $post_status == "draft" ? "selected" : ""?>>Draft</option>
+            <option value="published" <?=$selected = $post_status == "published" ? "selected" : ""?>>Published</option>
+        </select>
+<!--        <input type="text" id = "post_status" class = "form-control" name="post_status" value="--><?//=htmlspecialchars($row["post_status"])?><!--">-->
+    </div>
+    <div class = "form-group">
+        <input type = "hidden" name = "post_id" value = "<?=$row["post_id"]?>">
+        <input type="submit" name="edit_post" value = "Edit Post" class = "btn btn-primary">
+    </div>
+</form>

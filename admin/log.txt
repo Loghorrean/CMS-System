@@ -1,0 +1,460 @@
+[25-Aug-2020 01:37:13 Europe/Berlin] SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'Java' for key 'cat_title'
+[25-Aug-2020 15:01:16 Europe/Berlin] SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'Java' for key 'cat_title'
+[25-Aug-2020 15:02:33 Europe/Berlin] SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'Java' for key 'cat_title'
+[25-Aug-2020 15:08:14 Europe/Berlin] SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'Java' for key 'cat_title'
+[25-Aug-2020 16:56:21 Europe/Berlin] SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'Java' for key 'cat_title'
+[25-Aug-2020 16:56:38 Europe/Berlin] SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'Java' for key 'cat_title'
+[25-Aug-2020 17:01:39 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\admin\categories.php on line 136
+[25-Aug-2020 17:01:39 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\admin\categories.php on line 137
+[25-Aug-2020 17:01:39 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\admin\categories.php on line 138
+[25-Aug-2020 17:04:00 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\admin\categories.php on line 140
+[25-Aug-2020 17:04:00 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\admin\categories.php on line 141
+[25-Aug-2020 17:04:00 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\admin\categories.php on line 142
+[25-Aug-2020 17:04:18 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\admin\categories.php on line 140
+[25-Aug-2020 17:04:18 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\admin\categories.php on line 141
+[25-Aug-2020 17:04:18 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\admin\categories.php on line 142
+[25-Aug-2020 17:04:23 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\admin\categories.php on line 141
+[25-Aug-2020 17:04:23 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\admin\categories.php on line 142
+[25-Aug-2020 17:04:23 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\admin\categories.php on line 143
+[25-Aug-2020 17:04:33 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\admin\categories.php on line 141
+[25-Aug-2020 17:04:33 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\admin\categories.php on line 142
+[25-Aug-2020 17:04:33 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\admin\categories.php on line 143
+[25-Aug-2020 17:04:53 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\admin\categories.php on line 141
+[25-Aug-2020 17:04:53 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\admin\categories.php on line 142
+[25-Aug-2020 17:04:53 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\admin\categories.php on line 143
+[28-Aug-2020 15:34:40 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined function setError() in E:\XAMPP\htdocs\scripts\cms\admin\categories.php:36
+Stack trace:
+#0 {main}
+  thrown in E:\XAMPP\htdocs\scripts\cms\admin\categories.php on line 36
+[28-Aug-2020 15:35:00 Europe/Berlin] PHP Warning:  require_once(function.php): failed to open stream: No such file or directory in E:\XAMPP\htdocs\scripts\cms\admin\categories.php on line 7
+[28-Aug-2020 15:35:00 Europe/Berlin] PHP Fatal error:  require_once(): Failed opening required 'function.php' (include_path='E:\XAMPP\php\PEAR') in E:\XAMPP\htdocs\scripts\cms\admin\categories.php on line 7
+[28-Aug-2020 15:35:07 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: Argument 1 passed to deleteCategory() must be of the type int, string given, called in E:\XAMPP\htdocs\scripts\cms\admin\categories.php on line 39 and defined in E:\XAMPP\htdocs\scripts\cms\admin\functions.php:21
+Stack trace:
+#0 E:\XAMPP\htdocs\scripts\cms\admin\categories.php(39): deleteCategory('')
+#1 {main}
+  thrown in E:\XAMPP\htdocs\scripts\cms\admin\functions.php on line 21
+[28-Aug-2020 15:35:29 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: Argument 1 passed to deleteCategory() must be of the type int, string given, called in E:\XAMPP\htdocs\scripts\cms\admin\categories.php on line 39 and defined in E:\XAMPP\htdocs\scripts\cms\admin\functions.php:21
+Stack trace:
+#0 E:\XAMPP\htdocs\scripts\cms\admin\categories.php(39): deleteCategory('')
+#1 {main}
+  thrown in E:\XAMPP\htdocs\scripts\cms\admin\functions.php on line 21
+[28-Aug-2020 15:36:00 Europe/Berlin] PHP Notice:  Undefined variable: pdo in E:\XAMPP\htdocs\scripts\cms\admin\functions.php on line 26
+[28-Aug-2020 15:36:00 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in E:\XAMPP\htdocs\scripts\cms\admin\functions.php:26
+Stack trace:
+#0 E:\XAMPP\htdocs\scripts\cms\admin\categories.php(39): deleteCategory(2)
+#1 {main}
+  thrown in E:\XAMPP\htdocs\scripts\cms\admin\functions.php on line 26
+[28-Aug-2020 15:36:46 Europe/Berlin] PHP Notice:  Undefined variable: pdo in E:\XAMPP\htdocs\scripts\cms\admin\functions.php on line 26
+[28-Aug-2020 15:36:46 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in E:\XAMPP\htdocs\scripts\cms\admin\functions.php:26
+Stack trace:
+#0 E:\XAMPP\htdocs\scripts\cms\admin\categories.php(39): deleteCategory(6)
+#1 {main}
+  thrown in E:\XAMPP\htdocs\scripts\cms\admin\functions.php on line 26
+[28-Aug-2020 16:00:47 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: Argument 1 passed to deleteCategory() must be of the type int, string given, called in E:\XAMPP\htdocs\scripts\cms\admin\categories.php on line 26 and defined in E:\XAMPP\htdocs\scripts\cms\admin\functions.php:52
+Stack trace:
+#0 E:\XAMPP\htdocs\scripts\cms\admin\categories.php(26): deleteCategory('', Object(PDO))
+#1 {main}
+  thrown in E:\XAMPP\htdocs\scripts\cms\admin\functions.php on line 52
+[28-Aug-2020 16:10:46 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: Argument 1 passed to deleteCategory() must be of the type int, string given, called in E:\XAMPP\htdocs\scripts\cms\admin\categories.php on line 26 and defined in E:\XAMPP\htdocs\scripts\cms\admin\functions.php:44
+Stack trace:
+#0 E:\XAMPP\htdocs\scripts\cms\admin\categories.php(26): deleteCategory('da', Object(PDO))
+#1 {main}
+  thrown in E:\XAMPP\htdocs\scripts\cms\admin\functions.php on line 44
+[28-Aug-2020 16:12:48 Europe/Berlin] PHP Notice:  session_start(): A session had already been started - ignoring in E:\XAMPP\htdocs\scripts\cms\admin\functions.php on line 2
+[28-Aug-2020 16:17:28 Europe/Berlin] SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'Test' for key 'cat_title'
+[28-Aug-2020 16:17:51 Europe/Berlin] SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'Test' for key 'cat_title'
+[28-Aug-2020 16:20:36 Europe/Berlin] PHP Notice:  Undefined index: msg in E:\XAMPP\htdocs\scripts\cms\admin\categories.php on line 92
+[28-Aug-2020 16:21:52 Europe/Berlin] PHP Notice:  Undefined index: succcess in E:\XAMPP\htdocs\scripts\cms\admin\functions.php on line 10
+[28-Aug-2020 16:21:58 Europe/Berlin] SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'Java' for key 'cat_title'
+[28-Aug-2020 16:22:57 Europe/Berlin] SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'Java' for key 'cat_title'
+[28-Aug-2020 16:22:59 Europe/Berlin] PHP Notice:  Undefined index: succcess in E:\XAMPP\htdocs\scripts\cms\admin\functions.php on line 10
+[28-Aug-2020 16:23:23 Europe/Berlin] SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'Java' for key 'cat_title'
+[28-Aug-2020 16:23:29 Europe/Berlin] SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'Java' for key 'cat_title'
+[28-Aug-2020 16:23:36 Europe/Berlin] SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'Java' for key 'cat_title'
+[28-Aug-2020 16:27:36 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: Argument 1 passed to deleteCategory() must be of the type int, string given, called in E:\XAMPP\htdocs\scripts\cms\admin\categories.php on line 25 and defined in E:\XAMPP\htdocs\scripts\cms\admin\functions.php:42
+Stack trace:
+#0 E:\XAMPP\htdocs\scripts\cms\admin\categories.php(25): deleteCategory('', Object(PDO))
+#1 {main}
+  thrown in E:\XAMPP\htdocs\scripts\cms\admin\functions.php on line 42
+[28-Aug-2020 16:28:24 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: Argument 1 passed to deleteCategory() must be of the type int, string given, called in E:\XAMPP\htdocs\scripts\cms\admin\categories.php on line 25 and defined in E:\XAMPP\htdocs\scripts\cms\admin\functions.php:44
+Stack trace:
+#0 E:\XAMPP\htdocs\scripts\cms\admin\categories.php(25): deleteCategory('', Object(PDO))
+#1 {main}
+  thrown in E:\XAMPP\htdocs\scripts\cms\admin\functions.php on line 44
+[28-Aug-2020 17:14:16 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined function showEditForm() in E:\XAMPP\htdocs\scripts\cms\admin\categories.php:115
+Stack trace:
+#0 {main}
+  thrown in E:\XAMPP\htdocs\scripts\cms\admin\categories.php on line 115
+[28-Aug-2020 17:14:34 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined function showEditForm() in E:\XAMPP\htdocs\scripts\cms\admin\categories.php:115
+Stack trace:
+#0 {main}
+  thrown in E:\XAMPP\htdocs\scripts\cms\admin\categories.php on line 115
+[28-Aug-2020 17:14:53 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined function deleteCategory() in E:\XAMPP\htdocs\scripts\cms\admin\categories.php:39
+Stack trace:
+#0 {main}
+  thrown in E:\XAMPP\htdocs\scripts\cms\admin\categories.php on line 39
+[28-Aug-2020 17:15:06 Europe/Berlin] PHP Warning:  require_once(function.php): failed to open stream: No such file or directory in E:\XAMPP\htdocs\scripts\cms\admin\categories.php on line 7
+[28-Aug-2020 17:15:06 Europe/Berlin] PHP Fatal error:  require_once(): Failed opening required 'function.php' (include_path='E:\XAMPP\php\PEAR') in E:\XAMPP\htdocs\scripts\cms\admin\categories.php on line 7
+[28-Aug-2020 17:15:13 Europe/Berlin] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO), expecting ';' or ',' in E:\XAMPP\htdocs\scripts\cms\admin\functions.php on line 66
+[28-Aug-2020 17:15:25 Europe/Berlin] PHP Parse error:  syntax error, unexpected '"', expecting '-' or identifier (T_STRING) or variable (T_VARIABLE) or number (T_NUM_STRING) in E:\XAMPP\htdocs\scripts\cms\admin\functions.php on line 66
+[28-Aug-2020 17:15:46 Europe/Berlin] PHP Parse error:  syntax error, unexpected '"', expecting '-' or identifier (T_STRING) or variable (T_VARIABLE) or number (T_NUM_STRING) in E:\XAMPP\htdocs\scripts\cms\admin\functions.php on line 66
+[28-Aug-2020 17:16:10 Europe/Berlin] PHP Parse error:  syntax error, unexpected '"', expecting '-' or identifier (T_STRING) or variable (T_VARIABLE) or number (T_NUM_STRING) in E:\XAMPP\htdocs\scripts\cms\admin\functions.php on line 66
+[28-Aug-2020 17:16:13 Europe/Berlin] PHP Parse error:  syntax error, unexpected '"', expecting '-' or identifier (T_STRING) or variable (T_VARIABLE) or number (T_NUM_STRING) in E:\XAMPP\htdocs\scripts\cms\admin\functions.php on line 66
+[28-Aug-2020 17:16:14 Europe/Berlin] PHP Parse error:  syntax error, unexpected '"', expecting '-' or identifier (T_STRING) or variable (T_VARIABLE) or number (T_NUM_STRING) in E:\XAMPP\htdocs\scripts\cms\admin\functions.php on line 66
+[28-Aug-2020 17:16:42 Europe/Berlin] PHP Parse error:  syntax error, unexpected end of file in E:\XAMPP\htdocs\scripts\cms\admin\functions.php on line 74
+[28-Aug-2020 17:16:48 Europe/Berlin] PHP Parse error:  syntax error, unexpected end of file in E:\XAMPP\htdocs\scripts\cms\admin\functions.php on line 74
+[28-Aug-2020 17:17:05 Europe/Berlin] PHP Parse error:  syntax error, unexpected '"', expecting '-' or identifier (T_STRING) or variable (T_VARIABLE) or number (T_NUM_STRING) in E:\XAMPP\htdocs\scripts\cms\admin\functions.php on line 66
+[28-Aug-2020 17:17:13 Europe/Berlin] PHP Parse error:  syntax error, unexpected end of file in E:\XAMPP\htdocs\scripts\cms\admin\functions.php on line 74
+[28-Aug-2020 17:17:37 Europe/Berlin] PHP Parse error:  syntax error, unexpected end of file in E:\XAMPP\htdocs\scripts\cms\admin\functions.php on line 74
+[28-Aug-2020 17:19:29 Europe/Berlin] PHP Parse error:  syntax error, unexpected '"', expecting '-' or identifier (T_STRING) or variable (T_VARIABLE) or number (T_NUM_STRING) in E:\XAMPP\htdocs\scripts\cms\admin\functions.php on line 67
+[28-Aug-2020 17:20:06 Europe/Berlin] PHP Parse error:  syntax error, unexpected '"', expecting '-' or identifier (T_STRING) or variable (T_VARIABLE) or number (T_NUM_STRING) in E:\XAMPP\htdocs\scripts\cms\admin\functions.php on line 68
+[28-Aug-2020 17:35:14 Europe/Berlin] SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'Java' for key 'cat_title'
+[28-Aug-2020 17:36:09 Europe/Berlin] SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'Java' for key 'cat_title'
+[28-Aug-2020 17:42:34 Europe/Berlin] PHP Notice:  session_start(): A session had already been started - ignoring in E:\XAMPP\htdocs\scripts\cms\admin\functions.php on line 2
+[28-Aug-2020 17:45:44 Europe/Berlin] PHP Warning:  Use of undefined constant FILE_APPPEND - assumed 'FILE_APPPEND' (this will throw an Error in a future version of PHP) in E:\XAMPP\htdocs\scripts\cms\admin\functions.php on line 3
+[28-Aug-2020 17:45:44 Europe/Berlin] PHP Warning:  file_put_contents() expects parameter 3 to be int, string given in E:\XAMPP\htdocs\scripts\cms\admin\functions.php on line 3
+[28-Aug-2020 17:46:24 Europe/Berlin] PHP Warning:  Use of undefined constant FILE_APPPEND - assumed 'FILE_APPPEND' (this will throw an Error in a future version of PHP) in E:\XAMPP\htdocs\scripts\cms\admin\functions.php on line 3
+[28-Aug-2020 17:46:24 Europe/Berlin] PHP Warning:  file_put_contents() expects parameter 3 to be int, string given in E:\XAMPP\htdocs\scripts\cms\admin\functions.php on line 3
+[28-Aug-2020 17:46:29 Europe/Berlin] PHP Warning:  Use of undefined constant FILE_APPPEND - assumed 'FILE_APPPEND' (this will throw an Error in a future version of PHP) in E:\XAMPP\htdocs\scripts\cms\admin\functions.php on line 20
+[28-Aug-2020 17:46:29 Europe/Berlin] PHP Warning:  file_put_contents() expects parameter 3 to be int, string given in E:\XAMPP\htdocs\scripts\cms\admin\functions.php on line 20
+[28-Aug-2020 17:50:09 Europe/Berlin] PHP Notice:  Undefined index: error in E:\XAMPP\htdocs\scripts\cms\admin\categories.php on line 74
+[28-Aug-2020 17:50:09 Europe/Berlin] PHP Notice:  Undefined index: success in E:\XAMPP\htdocs\scripts\cms\admin\categories.php on line 78
+[28-Aug-2020 17:50:18 Europe/Berlin] PHP Notice:  Undefined index: error in E:\XAMPP\htdocs\scripts\cms\admin\categories.php on line 74
+[28-Aug-2020 17:50:18 Europe/Berlin] PHP Notice:  Undefined index: error in E:\XAMPP\htdocs\scripts\cms\admin\categories.php on line 74
+[28-Aug-2020 17:50:18 Europe/Berlin] PHP Notice:  Undefined index: success in E:\XAMPP\htdocs\scripts\cms\admin\categories.php on line 78
+[28-Aug-2020 17:50:30 Europe/Berlin] PHP Notice:  Undefined index: error in E:\XAMPP\htdocs\scripts\cms\admin\categories.php on line 74
+[28-Aug-2020 17:50:30 Europe/Berlin] PHP Notice:  Undefined index: error in E:\XAMPP\htdocs\scripts\cms\admin\categories.php on line 74
+[28-Aug-2020 17:50:30 Europe/Berlin] PHP Notice:  Undefined index: success in E:\XAMPP\htdocs\scripts\cms\admin\categories.php on line 78
+[28-Aug-2020 17:51:41 Europe/Berlin] PHP Notice:  Undefined index: error in E:\XAMPP\htdocs\scripts\cms\admin\categories.php on line 77
+[28-Aug-2020 17:51:41 Europe/Berlin] PHP Notice:  Undefined index: success in E:\XAMPP\htdocs\scripts\cms\admin\categories.php on line 81
+[28-Aug-2020 17:51:45 Europe/Berlin] PHP Notice:  Undefined index: error in E:\XAMPP\htdocs\scripts\cms\admin\categories.php on line 77
+[28-Aug-2020 17:51:47 Europe/Berlin] PHP Notice:  Undefined index: error in E:\XAMPP\htdocs\scripts\cms\admin\categories.php on line 77
+[28-Aug-2020 17:51:47 Europe/Berlin] PHP Notice:  Undefined index: success in E:\XAMPP\htdocs\scripts\cms\admin\categories.php on line 81
+[28-Aug-2020 17:53:20 Europe/Berlin] PHP Notice:  Undefined index: error in E:\XAMPP\htdocs\scripts\cms\admin\categories.php on line 78
+[28-Aug-2020 17:53:20 Europe/Berlin] PHP Notice:  Undefined index: success in E:\XAMPP\htdocs\scripts\cms\admin\categories.php on line 82
+[28-Aug-2020 19:45:43 Europe/Berlin] PHP Warning:  require_once(../includes/functions.php): failed to open stream: No such file or directory in E:\XAMPP\htdocs\scripts\cms\admin\includes\admin_header.php on line 4
+[28-Aug-2020 19:45:43 Europe/Berlin] PHP Fatal error:  require_once(): Failed opening required '../includes/functions.php' (include_path='E:\XAMPP\php\PEAR') in E:\XAMPP\htdocs\scripts\cms\admin\includes\admin_header.php on line 4
+[28-Aug-2020 20:14:48 Europe/Berlin] PHP Notice:  Undefined variable: source in E:\XAMPP\htdocs\scripts\cms\admin\posts.php on line 77
+[28-Aug-2020 20:14:48 Europe/Berlin] PHP Notice:  Undefined variable: source in E:\XAMPP\htdocs\scripts\cms\admin\posts.php on line 80
+[28-Aug-2020 20:14:49 Europe/Berlin] PHP Notice:  Undefined variable: source in E:\XAMPP\htdocs\scripts\cms\admin\posts.php on line 77
+[28-Aug-2020 20:14:49 Europe/Berlin] PHP Notice:  Undefined variable: source in E:\XAMPP\htdocs\scripts\cms\admin\posts.php on line 80
+[28-Aug-2020 20:14:50 Europe/Berlin] PHP Notice:  Undefined variable: source in E:\XAMPP\htdocs\scripts\cms\admin\posts.php on line 77
+[28-Aug-2020 20:14:50 Europe/Berlin] PHP Notice:  Undefined variable: source in E:\XAMPP\htdocs\scripts\cms\admin\posts.php on line 80
+[28-Aug-2020 20:15:17 Europe/Berlin] PHP Notice:  Undefined variable: source in E:\XAMPP\htdocs\scripts\cms\admin\posts.php on line 77
+[28-Aug-2020 20:15:17 Europe/Berlin] PHP Notice:  Undefined variable: source in E:\XAMPP\htdocs\scripts\cms\admin\posts.php on line 80
+[28-Aug-2020 22:19:17 Europe/Berlin] PHP Notice:  Undefined variable: source in E:\XAMPP\htdocs\scripts\cms\admin\posts.php on line 80
+[28-Aug-2020 22:19:17 Europe/Berlin] PHP Notice:  Undefined variable: source in E:\XAMPP\htdocs\scripts\cms\admin\posts.php on line 83
+[28-Aug-2020 22:28:17 Europe/Berlin] PHP Notice:  Undefined variable: post_iamge_temp in E:\XAMPP\htdocs\scripts\cms\admin\includes\add_post.php on line 7
+[29-Aug-2020 11:33:07 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'postpost_status' in 'field list' in E:\XAMPP\htdocs\scripts\cms\admin\includes\add_post.php:17
+Stack trace:
+#0 E:\XAMPP\htdocs\scripts\cms\admin\includes\add_post.php(17): PDOStatement->execute()
+#1 E:\XAMPP\htdocs\scripts\cms\admin\posts.php(81): require('E:\\XAMPP\\htdocs...')
+#2 {main}
+  thrown in E:\XAMPP\htdocs\scripts\cms\admin\includes\add_post.php on line 17
+[29-Aug-2020 14:49:44 Europe/Berlin] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function checkId(), 1 passed in E:\XAMPP\htdocs\scripts\cms\includes\functions.php on line 123 and exactly 2 expected in E:\XAMPP\htdocs\scripts\cms\includes\functions.php:104
+Stack trace:
+#0 E:\XAMPP\htdocs\scripts\cms\includes\functions.php(123): checkId(60)
+#1 E:\XAMPP\htdocs\scripts\cms\admin\categories.php(89): showEditCategoryForm(60, Object(PDO))
+#2 {main}
+  thrown in E:\XAMPP\htdocs\scripts\cms\includes\functions.php on line 104
+[29-Aug-2020 14:56:00 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: Argument 1 passed to showDeleteCategoryForm() must be of the type int, string given, called in E:\XAMPP\htdocs\scripts\cms\admin\categories.php on line 77 and defined in E:\XAMPP\htdocs\scripts\cms\includes\functions.php:139
+Stack trace:
+#0 E:\XAMPP\htdocs\scripts\cms\admin\categories.php(77): showDeleteCategoryForm('', Object(PDO))
+#1 {main}
+  thrown in E:\XAMPP\htdocs\scripts\cms\includes\functions.php on line 139
+[29-Aug-2020 14:56:33 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: Argument 1 passed to checkId() must be of the type int, string given, called in E:\XAMPP\htdocs\scripts\cms\includes\functions.php on line 140 and defined in E:\XAMPP\htdocs\scripts\cms\includes\functions.php:96
+Stack trace:
+#0 E:\XAMPP\htdocs\scripts\cms\includes\functions.php(140): checkId('', 'categories.php')
+#1 E:\XAMPP\htdocs\scripts\cms\admin\categories.php(77): showDeleteCategoryForm('', Object(PDO))
+#2 {main}
+  thrown in E:\XAMPP\htdocs\scripts\cms\includes\functions.php on line 96
+[29-Aug-2020 14:56:39 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: Argument 1 passed to checkId() must be of the type int, string given, called in E:\XAMPP\htdocs\scripts\cms\includes\functions.php on line 140 and defined in E:\XAMPP\htdocs\scripts\cms\includes\functions.php:96
+Stack trace:
+#0 E:\XAMPP\htdocs\scripts\cms\includes\functions.php(140): checkId('', 'categories.php')
+#1 E:\XAMPP\htdocs\scripts\cms\admin\categories.php(77): showDeleteCategoryForm('', Object(PDO))
+#2 {main}
+  thrown in E:\XAMPP\htdocs\scripts\cms\includes\functions.php on line 96
+[29-Aug-2020 16:12:13 Europe/Berlin] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function showDeletePostForm(), 0 passed in E:\XAMPP\htdocs\scripts\cms\admin\includes\view_all_posts.php on line 3 and exactly 2 expected in E:\XAMPP\htdocs\scripts\cms\includes\functions.php:167
+Stack trace:
+#0 E:\XAMPP\htdocs\scripts\cms\admin\includes\view_all_posts.php(3): showDeletePostForm()
+#1 E:\XAMPP\htdocs\scripts\cms\admin\posts.php(62): require('E:\\XAMPP\\htdocs...')
+#2 {main}
+  thrown in E:\XAMPP\htdocs\scripts\cms\includes\functions.php on line 167
+[29-Aug-2020 16:16:46 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch() on bool in E:\XAMPP\htdocs\scripts\cms\includes\functions.php:180
+Stack trace:
+#0 E:\XAMPP\htdocs\scripts\cms\admin\includes\view_all_posts.php(3): showDeletePostForm('1', Object(PDO))
+#1 E:\XAMPP\htdocs\scripts\cms\admin\posts.php(62): require('E:\\XAMPP\\htdocs...')
+#2 {main}
+  thrown in E:\XAMPP\htdocs\scripts\cms\includes\functions.php on line 180
+[29-Aug-2020 16:17:17 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch() on bool in E:\XAMPP\htdocs\scripts\cms\includes\functions.php:177
+Stack trace:
+#0 E:\XAMPP\htdocs\scripts\cms\admin\includes\view_all_posts.php(3): showDeletePostForm('1', Object(PDO))
+#1 E:\XAMPP\htdocs\scripts\cms\admin\posts.php(62): require('E:\\XAMPP\\htdocs...')
+#2 {main}
+  thrown in E:\XAMPP\htdocs\scripts\cms\includes\functions.php on line 177
+[29-Aug-2020 16:18:07 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch() on bool in E:\XAMPP\htdocs\scripts\cms\includes\functions.php:186
+Stack trace:
+#0 E:\XAMPP\htdocs\scripts\cms\admin\includes\view_all_posts.php(3): showDeletePostForm('1', Object(PDO))
+#1 E:\XAMPP\htdocs\scripts\cms\admin\posts.php(62): require('E:\\XAMPP\\htdocs...')
+#2 {main}
+  thrown in E:\XAMPP\htdocs\scripts\cms\includes\functions.php on line 186
+[29-Aug-2020 16:19:06 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch() on bool in E:\XAMPP\htdocs\scripts\cms\includes\functions.php:187
+Stack trace:
+#0 E:\XAMPP\htdocs\scripts\cms\admin\includes\view_all_posts.php(3): showDeletePostForm('1', Object(PDO))
+#1 E:\XAMPP\htdocs\scripts\cms\admin\posts.php(62): require('E:\\XAMPP\\htdocs...')
+#2 {main}
+  thrown in E:\XAMPP\htdocs\scripts\cms\includes\functions.php on line 187
+[31-Aug-2020 17:58:05 Europe/Berlin] PHP Notice:  Undefined index: post_image in E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_post.php on line 10
+[31-Aug-2020 17:58:05 Europe/Berlin] PHP Notice:  Undefined index: tags in E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_post.php on line 10
+[31-Aug-2020 17:58:05 Europe/Berlin] PHP Notice:  Undefined index: content in E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_post.php on line 11
+[31-Aug-2020 17:59:12 Europe/Berlin] PHP Notice:  Undefined index: post_image in E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_post.php on line 10
+[31-Aug-2020 18:10:59 Europe/Berlin] PHP Notice:  Undefined index: post_id in E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_post.php on line 12
+[31-Aug-2020 18:11:43 Europe/Berlin] PHP Notice:  Undefined index: post_id in E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_post.php on line 12
+[31-Aug-2020 18:12:04 Europe/Berlin] PHP Notice:  Undefined index: post_id in E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_post.php on line 12
+[31-Aug-2020 18:16:52 Europe/Berlin] PHP Warning:  PDOStatement::bindParam() expects at least 2 parameters, 1 given in E:\XAMPP\htdocs\scripts\cms\includes\functions.php on line 208
+[31-Aug-2020 18:16:52 Europe/Berlin] PHP Warning:  PDOStatement::bindParam() expects at least 2 parameters, 1 given in E:\XAMPP\htdocs\scripts\cms\includes\functions.php on line 209
+[31-Aug-2020 18:16:52 Europe/Berlin] PHP Warning:  PDOStatement::bindParam() expects at least 2 parameters, 1 given in E:\XAMPP\htdocs\scripts\cms\includes\functions.php on line 210
+[31-Aug-2020 18:16:52 Europe/Berlin] PHP Warning:  PDOStatement::bindParam() expects at least 2 parameters, 1 given in E:\XAMPP\htdocs\scripts\cms\includes\functions.php on line 211
+[31-Aug-2020 18:16:52 Europe/Berlin] PHP Warning:  PDOStatement::bindParam() expects at least 2 parameters, 1 given in E:\XAMPP\htdocs\scripts\cms\includes\functions.php on line 212
+[31-Aug-2020 18:16:52 Europe/Berlin] PHP Warning:  PDOStatement::bindParam() expects at least 2 parameters, 1 given in E:\XAMPP\htdocs\scripts\cms\includes\functions.php on line 213
+[31-Aug-2020 18:16:52 Europe/Berlin] PHP Warning:  PDOStatement::bindParam() expects at least 2 parameters, 1 given in E:\XAMPP\htdocs\scripts\cms\includes\functions.php on line 214
+[31-Aug-2020 18:16:52 Europe/Berlin] PHP Warning:  PDOStatement::bindParam() expects at least 2 parameters, 1 given in E:\XAMPP\htdocs\scripts\cms\includes\functions.php on line 215
+[31-Aug-2020 18:25:57 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'from posts where post_id = NULL' at line 1 in E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_post.php:15
+Stack trace:
+#0 E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_post.php(15): PDOStatement->execute()
+#1 E:\XAMPP\htdocs\scripts\cms\admin\posts.php(40): require('E:\\XAMPP\\htdocs...')
+#2 {main}
+  thrown in E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_post.php on line 15
+[31-Aug-2020 18:26:28 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'from posts where post_id = NULL' at line 1 in E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_post.php:15
+Stack trace:
+#0 E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_post.php(15): PDOStatement->execute()
+#1 E:\XAMPP\htdocs\scripts\cms\admin\posts.php(40): require('E:\\XAMPP\\htdocs...')
+#2 {main}
+  thrown in E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_post.php on line 15
+[31-Aug-2020 18:27:26 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'from posts where post_id = NULL' at line 1 in E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_post.php:15
+Stack trace:
+#0 E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_post.php(15): PDOStatement->execute()
+#1 E:\XAMPP\htdocs\scripts\cms\admin\posts.php(40): require('E:\\XAMPP\\htdocs...')
+#2 {main}
+  thrown in E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_post.php on line 15
+[31-Aug-2020 18:27:52 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'from posts where post_id = NULL' at line 1 in E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_post.php:15
+Stack trace:
+#0 E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_post.php(15): PDOStatement->execute()
+#1 E:\XAMPP\htdocs\scripts\cms\admin\posts.php(40): require('E:\\XAMPP\\htdocs...')
+#2 {main}
+  thrown in E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_post.php on line 15
+[31-Aug-2020 18:28:12 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'from posts where post_id = NULL' at line 1 in E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_post.php:15
+Stack trace:
+#0 E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_post.php(15): PDOStatement->execute()
+#1 E:\XAMPP\htdocs\scripts\cms\admin\posts.php(40): require('E:\\XAMPP\\htdocs...')
+#2 {main}
+  thrown in E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_post.php on line 15
+[31-Aug-2020 18:28:25 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'from posts where post_id = NULL' at line 1 in E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_post.php:15
+Stack trace:
+#0 E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_post.php(15): PDOStatement->execute()
+#1 E:\XAMPP\htdocs\scripts\cms\admin\posts.php(40): require('E:\\XAMPP\\htdocs...')
+#2 {main}
+  thrown in E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_post.php on line 15
+[31-Aug-2020 18:28:31 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'from posts where post_id = NULL' at line 1 in E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_post.php:15
+Stack trace:
+#0 E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_post.php(15): PDOStatement->execute()
+#1 E:\XAMPP\htdocs\scripts\cms\admin\posts.php(40): require('E:\\XAMPP\\htdocs...')
+#2 {main}
+  thrown in E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_post.php on line 15
+[31-Aug-2020 18:28:41 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'from posts where post_id = NULL' at line 1 in E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_post.php:15
+Stack trace:
+#0 E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_post.php(15): PDOStatement->execute()
+#1 E:\XAMPP\htdocs\scripts\cms\admin\posts.php(40): require('E:\\XAMPP\\htdocs...')
+#2 {main}
+  thrown in E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_post.php on line 15
+[31-Aug-2020 18:28:53 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'from posts where post_id = '2'' at line 1 in E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_post.php:15
+Stack trace:
+#0 E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_post.php(15): PDOStatement->execute()
+#1 E:\XAMPP\htdocs\scripts\cms\admin\posts.php(40): require('E:\\XAMPP\\htdocs...')
+#2 {main}
+  thrown in E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_post.php on line 15
+[31-Aug-2020 18:29:18 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'from posts where post_id = '2'' at line 1 in E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_post.php:15
+Stack trace:
+#0 E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_post.php(15): PDOStatement->execute()
+#1 E:\XAMPP\htdocs\scripts\cms\admin\posts.php(40): require('E:\\XAMPP\\htdocs...')
+#2 {main}
+  thrown in E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_post.php on line 15
+[31-Aug-2020 18:32:08 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_post.php on line 33
+[31-Aug-2020 18:32:08 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_post.php on line 49
+[31-Aug-2020 18:32:08 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_post.php on line 53
+[31-Aug-2020 18:32:08 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_post.php on line 58
+[31-Aug-2020 18:32:08 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_post.php on line 62
+[31-Aug-2020 18:32:08 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_post.php on line 66
+[31-Aug-2020 18:32:08 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_post.php on line 69
+[31-Aug-2020 18:33:44 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_post.php on line 37
+[31-Aug-2020 18:33:44 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_post.php on line 53
+[31-Aug-2020 18:33:44 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_post.php on line 57
+[31-Aug-2020 18:33:44 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_post.php on line 62
+[31-Aug-2020 18:33:44 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_post.php on line 66
+[31-Aug-2020 18:33:44 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_post.php on line 70
+[31-Aug-2020 18:33:44 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_post.php on line 73
+[31-Aug-2020 18:33:52 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_post.php on line 38
+[31-Aug-2020 18:33:52 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_post.php on line 54
+[31-Aug-2020 18:33:52 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_post.php on line 58
+[31-Aug-2020 18:33:52 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_post.php on line 63
+[31-Aug-2020 18:33:52 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_post.php on line 67
+[31-Aug-2020 18:33:52 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_post.php on line 71
+[31-Aug-2020 18:33:52 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_post.php on line 74
+[05-Sep-2020 21:50:27 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\includes\functions.php on line 293
+[05-Sep-2020 21:50:27 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\includes\functions.php on line 294
+[05-Sep-2020 21:50:37 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\includes\functions.php on line 294
+[05-Sep-2020 21:50:37 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\includes\functions.php on line 295
+[05-Sep-2020 21:50:55 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\includes\functions.php on line 294
+[05-Sep-2020 21:50:55 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\includes\functions.php on line 295
+[05-Sep-2020 21:51:15 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\includes\functions.php on line 294
+[05-Sep-2020 21:51:15 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\includes\functions.php on line 295
+[05-Sep-2020 21:51:26 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\includes\functions.php on line 294
+[05-Sep-2020 21:51:26 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\includes\functions.php on line 295
+[05-Sep-2020 21:52:18 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type int in E:\XAMPP\htdocs\scripts\cms\includes\functions.php on line 295
+[05-Sep-2020 21:52:18 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type int in E:\XAMPP\htdocs\scripts\cms\includes\functions.php on line 296
+[05-Sep-2020 21:52:39 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\includes\functions.php on line 295
+[05-Sep-2020 21:52:39 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\includes\functions.php on line 296
+[05-Sep-2020 21:52:51 Europe/Berlin] PHP Notice:  Object of class PDORow could not be converted to int in E:\XAMPP\htdocs\scripts\cms\includes\functions.php on line 288
+[05-Sep-2020 21:52:51 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\includes\functions.php on line 295
+[05-Sep-2020 21:52:51 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\includes\functions.php on line 296
+[05-Sep-2020 21:53:02 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\includes\functions.php on line 295
+[05-Sep-2020 21:53:02 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\includes\functions.php on line 296
+[05-Sep-2020 21:53:25 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\includes\functions.php on line 295
+[05-Sep-2020 21:53:25 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\includes\functions.php on line 296
+[05-Sep-2020 21:53:27 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\includes\functions.php on line 295
+[05-Sep-2020 21:53:27 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\includes\functions.php on line 296
+[05-Sep-2020 21:53:51 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\includes\functions.php on line 295
+[05-Sep-2020 21:53:51 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\includes\functions.php on line 296
+[05-Sep-2020 21:53:53 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\includes\functions.php on line 295
+[05-Sep-2020 21:53:53 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\includes\functions.php on line 296
+[05-Sep-2020 21:53:57 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\includes\functions.php on line 295
+[05-Sep-2020 21:53:57 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\includes\functions.php on line 296
+[05-Sep-2020 21:55:22 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in E:\XAMPP\htdocs\scripts\cms\includes\functions.php on line 296
+[05-Sep-2020 21:55:22 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in E:\XAMPP\htdocs\scripts\cms\includes\functions.php on line 297
+[05-Sep-2020 21:55:37 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in E:\XAMPP\htdocs\scripts\cms\includes\functions.php on line 292
+[05-Sep-2020 21:55:37 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in E:\XAMPP\htdocs\scripts\cms\includes\functions.php on line 293
+[05-Sep-2020 21:55:57 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in E:\XAMPP\htdocs\scripts\cms\includes\functions.php on line 291
+[05-Sep-2020 21:55:57 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in E:\XAMPP\htdocs\scripts\cms\includes\functions.php on line 292
+[05-Sep-2020 21:55:58 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in E:\XAMPP\htdocs\scripts\cms\includes\functions.php on line 291
+[05-Sep-2020 21:55:58 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in E:\XAMPP\htdocs\scripts\cms\includes\functions.php on line 292
+[06-Sep-2020 18:45:53 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\includes\functions.php on line 290
+[06-Sep-2020 18:45:53 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\includes\functions.php on line 291
+[06-Sep-2020 18:45:53 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\includes\functions.php on line 292
+[06-Sep-2020 19:09:37 Europe/Berlin] PHP Notice:  Undefined index: comment_id in E:\XAMPP\htdocs\scripts\cms\admin\users.php on line 8
+[06-Sep-2020 19:09:37 Europe/Berlin] PHP Notice:  Undefined index: comment_post_id in E:\XAMPP\htdocs\scripts\cms\admin\users.php on line 8
+[06-Sep-2020 19:10:01 Europe/Berlin] PHP Notice:  Undefined index: comment_id in E:\XAMPP\htdocs\scripts\cms\admin\users.php on line 8
+[06-Sep-2020 19:10:01 Europe/Berlin] PHP Notice:  Undefined index: comment_post_id in E:\XAMPP\htdocs\scripts\cms\admin\users.php on line 8
+[06-Sep-2020 19:11:33 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\includes\functions.php on line 423
+[06-Sep-2020 19:11:33 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\includes\functions.php on line 424
+[06-Sep-2020 19:49:03 Europe/Berlin] PHP Parse error:  syntax error, unexpected ',' in E:\XAMPP\htdocs\scripts\cms\includes\functions.php on line 95
+[06-Sep-2020 19:51:12 Europe/Berlin] PHP Notice:  Undefined index: error in E:\XAMPP\htdocs\scripts\cms\includes\functions.php on line 101
+[06-Sep-2020 19:52:15 Europe/Berlin] PHP Notice:  Undefined index: error in E:\XAMPP\htdocs\scripts\cms\includes\functions.php on line 101
+[06-Sep-2020 19:52:20 Europe/Berlin] PHP Notice:  Undefined index: error in E:\XAMPP\htdocs\scripts\cms\includes\functions.php on line 101
+[06-Sep-2020 20:14:02 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\includes\functions.php on line 481
+[06-Sep-2020 20:14:02 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\includes\functions.php on line 482
+[06-Sep-2020 20:24:12 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_user.php on line 42
+[06-Sep-2020 20:24:12 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_user.php on line 58
+[06-Sep-2020 20:24:12 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_user.php on line 62
+[06-Sep-2020 20:24:12 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_user.php on line 67
+[06-Sep-2020 20:24:12 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_user.php on line 71
+[06-Sep-2020 20:24:12 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_user.php on line 75
+[06-Sep-2020 20:24:12 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_user.php on line 78
+[06-Sep-2020 20:24:57 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_user.php on line 42
+[06-Sep-2020 20:24:57 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_user.php on line 58
+[06-Sep-2020 20:24:57 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_user.php on line 62
+[06-Sep-2020 20:24:57 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_user.php on line 67
+[06-Sep-2020 20:24:57 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_user.php on line 71
+[06-Sep-2020 20:24:57 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_user.php on line 75
+[06-Sep-2020 20:24:57 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_user.php on line 78
+[06-Sep-2020 20:25:47 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_user.php on line 42
+[06-Sep-2020 20:25:47 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_user.php on line 58
+[06-Sep-2020 20:25:47 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_user.php on line 62
+[06-Sep-2020 20:25:47 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_user.php on line 67
+[06-Sep-2020 20:25:47 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_user.php on line 71
+[06-Sep-2020 20:25:48 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_user.php on line 75
+[06-Sep-2020 20:25:48 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_user.php on line 78
+[06-Sep-2020 20:25:53 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_user.php on line 42
+[06-Sep-2020 20:25:53 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_user.php on line 58
+[06-Sep-2020 20:25:53 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_user.php on line 62
+[06-Sep-2020 20:25:53 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_user.php on line 67
+[06-Sep-2020 20:25:53 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_user.php on line 71
+[06-Sep-2020 20:25:53 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_user.php on line 75
+[06-Sep-2020 20:25:53 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_user.php on line 78
+[06-Sep-2020 20:26:06 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_user.php on line 43
+[06-Sep-2020 20:26:06 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_user.php on line 59
+[06-Sep-2020 20:26:06 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_user.php on line 63
+[06-Sep-2020 20:26:06 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_user.php on line 68
+[06-Sep-2020 20:26:06 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_user.php on line 72
+[06-Sep-2020 20:26:06 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_user.php on line 76
+[06-Sep-2020 20:26:06 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_user.php on line 79
+[06-Sep-2020 20:31:04 Europe/Berlin] PHP Notice:  Undefined variable: query in E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_user.php on line 38
+[06-Sep-2020 20:31:04 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch() on null in E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_user.php:38
+Stack trace:
+#0 E:\XAMPP\htdocs\scripts\cms\admin\users.php(41): require()
+#1 {main}
+  thrown in E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_user.php on line 38
+[06-Sep-2020 20:31:44 Europe/Berlin] PHP Notice:  Undefined variable: query in E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_user.php on line 39
+[06-Sep-2020 20:31:44 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch() on null in E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_user.php:39
+Stack trace:
+#0 E:\XAMPP\htdocs\scripts\cms\admin\users.php(41): require()
+#1 {main}
+  thrown in E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_user.php on line 39
+[06-Sep-2020 21:01:48 Europe/Berlin] PHP Notice:  Array to string conversion in E:\XAMPP\htdocs\scripts\cms\includes\functions.php on line 203
+[06-Sep-2020 21:01:50 Europe/Berlin] PHP Notice:  Array to string conversion in E:\XAMPP\htdocs\scripts\cms\includes\functions.php on line 203
+[06-Sep-2020 21:02:40 Europe/Berlin] PHP Notice:  Array to string conversion in E:\XAMPP\htdocs\scripts\cms\includes\functions.php on line 203
+[06-Sep-2020 21:02:58 Europe/Berlin] PHP Notice:  Array to string conversion in E:\XAMPP\htdocs\scripts\cms\includes\functions.php on line 203
+[06-Sep-2020 21:31:39 Europe/Berlin] PHP Notice:  Undefined index: user_id in E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_user.php on line 10
+[06-Sep-2020 21:31:39 Europe/Berlin] PHP Notice:  Undefined index: username in E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_user.php on line 10
+[06-Sep-2020 21:32:21 Europe/Berlin] PHP Notice:  Undefined index: user_id in E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_user.php on line 10
+[06-Sep-2020 21:32:21 Europe/Berlin] PHP Notice:  Undefined index: username in E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_user.php on line 10
+[06-Sep-2020 21:33:33 Europe/Berlin] PHP Notice:  Undefined index: user_id in E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_user.php on line 10
+[06-Sep-2020 21:33:33 Europe/Berlin] PHP Notice:  Undefined index: username in E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_user.php on line 10
+[06-Sep-2020 21:34:03 Europe/Berlin] PHP Notice:  Undefined index: user_id in E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_user.php on line 10
+[06-Sep-2020 21:34:03 Europe/Berlin] PHP Notice:  Undefined index: username in E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_user.php on line 10
+[07-Sep-2020 11:12:45 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\includes\functions.php on line 409
+[07-Sep-2020 11:12:45 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\includes\functions.php on line 410
+[07-Sep-2020 11:12:45 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\includes\functions.php on line 411
+[07-Sep-2020 11:14:21 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'count(cat_id) as 'count' from category where cat_id = '65'' at line 1 in E:\XAMPP\htdocs\scripts\cms\includes\functions.php:279
+Stack trace:
+#0 E:\XAMPP\htdocs\scripts\cms\includes\functions.php(279): PDOStatement->execute()
+#1 E:\XAMPP\htdocs\scripts\cms\admin\categories.php(72): showEditCategoryForm('65', Object(PDO))
+#2 {main}
+  thrown in E:\XAMPP\htdocs\scripts\cms\includes\functions.php on line 279
+[07-Sep-2020 14:11:56 Europe/Berlin] PHP Notice:  Undefined index: username in E:\XAMPP\htdocs\scripts\cms\admin\index.php on line 20
+[07-Sep-2020 14:12:55 Europe/Berlin] PHP Notice:  session_start(): A session had already been started - ignoring in E:\XAMPP\htdocs\scripts\cms\admin\includes\admin_header.php on line 4
+[07-Sep-2020 14:15:22 Europe/Berlin] PHP Notice:  Undefined index: role in E:\XAMPP\htdocs\scripts\cms\admin\index.php on line 8
+[07-Sep-2020 16:15:37 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_user.php on line 18
+[07-Sep-2020 16:15:37 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_user.php on line 30
+[07-Sep-2020 16:15:37 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_user.php on line 39
+[07-Sep-2020 16:15:37 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_user.php on line 43
+[07-Sep-2020 16:15:37 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_user.php on line 46
+[07-Sep-2020 16:31:50 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_user.php on line 18
+[07-Sep-2020 16:31:50 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_user.php on line 30
+[07-Sep-2020 16:31:50 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_user.php on line 39
+[07-Sep-2020 16:31:50 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_user.php on line 43
+[07-Sep-2020 16:31:50 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_user.php on line 46
+[07-Sep-2020 16:33:36 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_user.php on line 18
+[07-Sep-2020 16:33:36 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_user.php on line 30
+[07-Sep-2020 16:33:36 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_user.php on line 39
+[07-Sep-2020 16:33:36 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_user.php on line 43
+[07-Sep-2020 16:33:36 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\admin\includes\edit_user.php on line 46
+[07-Sep-2020 16:40:11 Europe/Berlin] PHP Notice:  Undefined variable: row in E:\XAMPP\htdocs\scripts\cms\admin\profile.php on line 32
+[07-Sep-2020 16:40:11 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in E:\XAMPP\htdocs\scripts\cms\admin\profile.php on line 32
+[07-Sep-2020 16:40:11 Europe/Berlin] PHP Notice:  Undefined variable: row in E:\XAMPP\htdocs\scripts\cms\admin\profile.php on line 44
+[07-Sep-2020 16:40:11 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in E:\XAMPP\htdocs\scripts\cms\admin\profile.php on line 44
+[07-Sep-2020 16:40:11 Europe/Berlin] PHP Notice:  Undefined variable: row in E:\XAMPP\htdocs\scripts\cms\admin\profile.php on line 53
+[07-Sep-2020 16:40:11 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in E:\XAMPP\htdocs\scripts\cms\admin\profile.php on line 53
+[07-Sep-2020 16:40:11 Europe/Berlin] PHP Notice:  Undefined variable: row in E:\XAMPP\htdocs\scripts\cms\admin\profile.php on line 57
+[07-Sep-2020 16:40:11 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in E:\XAMPP\htdocs\scripts\cms\admin\profile.php on line 57
+[07-Sep-2020 16:40:11 Europe/Berlin] PHP Notice:  Undefined variable: row in E:\XAMPP\htdocs\scripts\cms\admin\profile.php on line 60
+[07-Sep-2020 16:40:11 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in E:\XAMPP\htdocs\scripts\cms\admin\profile.php on line 60
+[07-Sep-2020 17:31:50 Europe/Berlin] PHP Parse error:  syntax error, unexpected '$query' (T_VARIABLE) in E:\XAMPP\htdocs\scripts\cms\admin\includes\admin_widgets.php on line 6
+[07-Sep-2020 17:35:25 Europe/Berlin] PHP Notice:  session_start(): A session had already been started - ignoring in E:\XAMPP\htdocs\scripts\cms\admin\includes\admin_header.php on line 4
+[07-Sep-2020 17:35:27 Europe/Berlin] PHP Notice:  session_start(): A session had already been started - ignoring in E:\XAMPP\htdocs\scripts\cms\admin\includes\admin_header.php on line 4
+[07-Sep-2020 23:16:41 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[21S01]: Insert value list does not match column list: 1136 Column count doesn't match value count at row 1 in E:\XAMPP\htdocs\scripts\cms\includes\functions.php:163
+Stack trace:
+#0 E:\XAMPP\htdocs\scripts\cms\includes\functions.php(163): PDOStatement->execute()
+#1 E:\XAMPP\htdocs\scripts\cms\admin\includes\add_post.php(3): insertPost(Object(PDO))
+#2 E:\XAMPP\htdocs\scripts\cms\admin\posts.php(33): require('E:\\XAMPP\\htdocs...')
+#3 {main}
+  thrown in E:\XAMPP\htdocs\scripts\cms\includes\functions.php on line 163
