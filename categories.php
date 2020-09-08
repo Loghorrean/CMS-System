@@ -19,33 +19,25 @@ require_once("includes/navigation.php");
         <!-- Blog Entries Column -->
         <div class="col-md-8">
             <?php
-            $stmt = $pdo->prepare("SELECT * FROM posts where post_category_id = :id");
-            $stmt->bindParam(":id", $_GET["cat"]);
-            $stmt->execute();
+            $query = $pdo->prepare("SELECT * FROM posts where post_category_id = :id and post_status = 'published'");
+            $query->bindParam(":id", $_GET["cat"]);
+            $query->execute();
             ?>
             <h1 class="page-header">
-                My little CMS
+                Main Page
             </h1>
 
             <!-- First Blog Post -->
             <?php
-            while ($row = $stmt->fetch(PDO::FETCH_LAZY)) {
-                ?>
-                <h2>
-                    <a href="post.php?p_id=<?=$row["post_id"]?>"><?=htmlspecialchars($row["post_title"])?></a>
-                </h2>
-                <p class="lead">
-                    by <a href="index.php"><?=htmlspecialchars($row["post_author"])?></a>
-                </p>
-                <p><span class="glyphicon glyphicon-time"></span> <?=htmlspecialchars($row["post_date"])?></p>
-                <hr>
-                <a href = "post.php?p_id=<?=$row["post_id"]?>"><img class="img-responsive" src="images/<?=$row["post_image"]?>" alt="Loading..."></a>
-                <hr>
-                <p><?=htmlspecialchars($row["post_content"])?></p>
-                <a class="btn btn-primary" href="#">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
-
-                <hr>
-            <?php } ?>
+            $stmt = $pdo->prepare("SELECT count(post_id) as 'count' from posts where post_category_id = :id and post_status = 'published'");
+            $stmt->bindParam(":id", $_GET["cat"]);
+            $stmt->execute();
+            $check = $stmt->fetch(PDO::FETCH_LAZY);
+            if ($check["count"] == 0) {
+                echo '<h1 class="text-center">No Published Posts Yet</h1>';
+            }
+            showPosts($query, true, true);
+            ?>
             <!-- Pager -->
             <ul class="pager">
                 <li class="previous">

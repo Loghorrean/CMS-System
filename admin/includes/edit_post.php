@@ -34,6 +34,7 @@ $query->bindParam(":id", $_GET["p_id"]);
 $query->execute();
 $row = $query->fetch(PDO::FETCH_LAZY);
 $post_status = $row["post_status"];
+$post_cat_id = $row["post_category_id"];
 $query = $pdo->prepare("SELECT * from category"); // to dynamically view categories
 $query->execute();
 ?>
@@ -49,7 +50,8 @@ $query->execute();
             while ($category = $query->fetch(PDO::FETCH_LAZY)) { // categories
                 $cat_id = $category["cat_id"];
                 $cat_title = $category["cat_title"];
-                echo "<option value = '{$cat_id}'>$cat_title</option>";
+                $selected = $cat_id == $post_cat_id ? "selected" : "";
+                echo "<option value = '{$cat_id}' $selected>$cat_title</option>";
             }
             ?>
         </select>
