@@ -28,32 +28,16 @@ require_once("includes/navigation.php");
 
             <!-- First Blog Post -->
             <?php
-            $query = $pdo->prepare("SELECT count(post_id) as count_posts from posts where post_tags LIKE :srch");
+            $query = $pdo->prepare("SELECT count(post_id) as count from posts where post_tags LIKE :srch");
             $keyword = '%'.$search.'%';
             $query->bindParam(":srch", $keyword);
             $query->execute();
             $count = $query->fetch(PDO::FETCH_LAZY);
-            if ($count["count_posts"] == 0) {
+            if ($count["count"] == 0) {
                 echo "<h1>No results</h1>";
             }
             else {
-                while ($row = $stmt->fetch(PDO::FETCH_LAZY)) {
-                    ?>
-                    <h2>
-                        <a href="#"><?=htmlspecialchars($row["post_title"])?></a>
-                    </h2>
-                    <p class="lead">
-                        by <a href="index.php"><?=htmlspecialchars($row["post_author"])?></a>
-                    </p>
-                    <p><span class="glyphicon glyphicon-time"></span> <?=htmlspecialchars($row["post_date"])?></p>
-                    <hr>
-                    <img class="img-responsive" src="images/<?=htmlspecialchars($row["post_image"])?>" alt="Loading...">
-                    <hr>
-                    <p><?=htmlspecialchars($row["post_content"])?></p>
-                    <a class="btn btn-primary" href="#">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
-
-                    <hr>
-                <?php } 
+                showPosts($stmt, true, true);
             }
             ?>
             <!-- Pager -->
