@@ -35,8 +35,8 @@ $query->execute();
 		<input type="text" class = "form-control" name="post_tags" id = "post_tags">
 	</div>
 	<div class = "form-group">
-		<label for = "post_content">Post Content</label><br>
-		<textarea class = "form_control" id = "post_content" cols = "30" rows = "10" name = "post_content"></textarea>
+		<label for = "body">Post Content</label><br>
+		<textarea class = "form_control" id = "body" cols = "30" rows = "20" name = "post_content"></textarea>
 	</div>
 	<div class = "form-group">
 		<label for = "post_status">Post Status</label>
