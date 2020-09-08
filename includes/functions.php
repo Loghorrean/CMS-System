@@ -487,9 +487,9 @@ function unapproveComment($com_id, $pdo) {
 }
 
 function insertUser($pdo) {
-    $sql = "INSERT into users (username, user_password, user_firstname, user_lastname, user_email, user_role) ";
-    $sql .= "VALUES (:nm, :pwd, :fname, :lname, :mail, :role)";
-    $salt = "XyZzy12*_";
+    $sql = "INSERT into users (username, user_password, user_firstname, user_lastname, user_email, user_role, randSalt) ";
+    $sql .= "VALUES (:nm, :pwd, :fname, :lname, :mail, :role, :salt)";
+    $salt = generateSalt();
     $password = hash("md5", $salt.$_POST["user_password"]);
     try {
         $query = $pdo->prepare($sql);
@@ -499,6 +499,7 @@ function insertUser($pdo) {
         $query->bindParam(":lname", $_POST["user_lastname"]);
         $query->bindParam(":mail", $_POST["user_email"]);
         $query->bindParam(":role", $_POST["user_role"]);
+        $query->bindParam(":salt", $salt);
         $query->execute();
         $_SESSION["success"] = "User added";
         header("Location: users.php");
@@ -543,3 +544,12 @@ function deleteUser($u_id, $pdo) {
     }
 }
 
+function generateSalt()
+{
+    $salt = '';
+    $saltLength = 8;
+    for($i=0; $i<$saltLength; $i++) {
+        $salt .= chr(mt_rand(33,126));
+    }
+    return $salt;
+}
