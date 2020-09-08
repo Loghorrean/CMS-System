@@ -1,6 +1,20 @@
+<form>
 <table class = "table table-bordered table-hover">
+    <div id = "bulkOptionsContainer" class = "col-xs-4">
+        <select class = "form-control" name="" id="">
+            <option value="" disabled>Select Option</option>
+            <option value="">Publish</option>
+            <option value="">Draft</option>
+            <option value="">Delete</option>
+        </select>
+    </div>
+    <div class = "col-xs-4">
+        <input type="submit" name="submit" class="btn btn-success" value="Apply">
+        <a href="add_post.php" class="btn btn-primary">Add New</a>
+    </div>
     <thead>
         <tr>
+            <th><input id="selectAllBoxes" type="checkbox"</th>
             <th>Post ID</th>
             <th>Category Title</th>
             <th>Title</th>
@@ -21,6 +35,7 @@
             $cat_title = $row["cat_title"] ?? "Non existent";
             ?>
             <tr>
+                <td><input class="checkBoxes" type="checkbox" name = "checkBoxArray[]" value = <?=$row["post_id"]?>></td>
                 <td><?=htmlspecialchars($row["post_id"])?></td>
                 <td><?=htmlspecialchars($cat_title)?></td>
                 <td><?=htmlspecialchars($row["post_title"])?></td>
@@ -37,6 +52,7 @@
         <?php } ?>
     </tbody>
 </table>
+</form>
     <?php
     if (isset($_GET["delete"])) {
         showDeletePostForm($_GET["delete"], $pdo);
