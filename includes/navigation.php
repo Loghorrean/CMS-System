@@ -25,7 +25,17 @@
                         echo '<li><a href="admin" style = "font-weight: bold;">Admin</a></li>';
                     }
                     ?>
-
+                    <?php
+                    if (isset($_SESSION["user_id"]) && isset($_GET["p_id"])) {
+                        $stmt = $pdo->prepare("SELECT post_author from posts where post_id = :id");
+                        $stmt->bindParam(":id", $_GET["p_id"]);
+                        $stmt->execute();
+                        $row = $stmt->fetch(PDO::FETCH_LAZY);
+                        if ($_SESSION["name"] == $row["post_author"] || $_SESSION["user_role"] == "admin") {
+                            echo '<li><a href="admin/posts.php?source=edit_post&p_id=' . $_GET["p_id"] . '">Edit Post</a></li>';
+                        }
+                    }
+                    ?>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->

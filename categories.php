@@ -6,6 +6,13 @@ if (isset($_GET["cat"])) {
         return;
     }
 }
+$query = $pdo->prepare("SELECT * FROM posts where post_category_id = :id and post_status = 'published'");
+$query->bindParam(":id", $_GET["cat"]);
+$query->execute();
+$stmt = $pdo->prepare("SELECT count(post_id) as 'count' from posts where post_category_id = :id and post_status = 'published'");
+$stmt->bindParam(":id", $_GET["cat"]);
+$stmt->execute();
+$check = $stmt->fetch(PDO::FETCH_LAZY);
 ?>
     <!-- Navigation -->
 <?php
@@ -18,25 +25,18 @@ require_once("includes/navigation.php");
 
         <!-- Blog Entries Column -->
         <div class="col-md-8">
-            <?php
-            $query = $pdo->prepare("SELECT * FROM posts where post_category_id = :id and post_status = 'published'");
-            $query->bindParam(":id", $_GET["cat"]);
-            $query->execute();
-            ?>
             <h1 class="page-header">
                 Main Page
             </h1>
 
             <!-- First Blog Post -->
             <?php
-            $stmt = $pdo->prepare("SELECT count(post_id) as 'count' from posts where post_category_id = :id and post_status = 'published'");
-            $stmt->bindParam(":id", $_GET["cat"]);
-            $stmt->execute();
-            $check = $stmt->fetch(PDO::FETCH_LAZY);
             if ($check["count"] == 0) {
                 echo '<h1 class="text-center">No Published Posts Yet</h1>';
             }
-            showPosts($query, true, true);
+            else {
+                showPosts($query, true, true);
+            }
             ?>
             <!-- Pager -->
             <ul class="pager">
