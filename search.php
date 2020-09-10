@@ -16,10 +16,16 @@ require_once("includes/navigation.php");
             <?php
             if (isset($_POST["submit"])) {
                 $search = htmlspecialchars($_POST["search"]);
-                $stmt = $pdo->prepare("SELECT * from posts where post_tags LIKE :srch");
+                $sql = "SELECT users.username as 'username', posts.* from posts ";
+                $sql .= "left join users on users.user_id = posts.post_author_id ";
+                $sql .= "where post_tags LIKE :srch";
+                $stmt = $pdo->prepare($sql);
                 $keyword = '%'.$search.'%';
                 $stmt->bindParam(":srch", $keyword);
                 $stmt->execute();
+            }
+            else {
+                header("Location: ./");
             }
             ?>
             <h1 class="page-header">

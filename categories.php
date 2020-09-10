@@ -6,7 +6,10 @@ if (isset($_GET["cat"])) {
         return;
     }
 }
-$query = $pdo->prepare("SELECT * FROM posts where post_category_id = :id and post_status = 'published'");
+$sql = "SELECT users.username as 'username', posts.* FROM posts ";
+$sql .= " left join users on users.user_id = posts.post_author_id ";
+$sql .= "where post_category_id = :id and post_status = 'published'";
+$query = $pdo->prepare($sql);
 $query->bindParam(":id", $_GET["cat"]);
 $query->execute();
 $stmt = $pdo->prepare("SELECT count(post_id) as 'count' from posts where post_category_id = :id and post_status = 'published'");
