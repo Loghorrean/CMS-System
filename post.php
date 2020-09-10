@@ -3,9 +3,11 @@ require_once("includes/header.php");
 if (isset($_GET["p_id"])) {
     if (!checkId($_GET["p_id"])) {
         header("Location: index.php");
-        return;
+        exit();
     }
-    $query = $pdo->prepare("SELECT * from posts where post_id = :id");
+    $sql = "SELECT users.username as 'username', posts.* from posts ";
+    $sql .= "left join users on users.user_id = posts.post_author_id where post_id = :id";
+    $query = $pdo->prepare($sql);
     $query->bindParam(":id", $_GET["p_id"]);
     $query->execute();
 }
@@ -67,18 +69,10 @@ require_once("includes/navigation.php");
                             <h4>Leave a Comment:</h4>
                             <form action="" method="POST" role="form">
                                 <div class="form-group">
-                                    <label for="comment_author">Author</label>
-                                    <input type="text" class="form-control" name="comment_author" id="comment_author">
-                                </div>
-                                <div class="form-group">
-                                    <label for="comment_email">Email</label>
-                                    <input type="text" class="form-control" name="comment_email" id="comment_email">
-                                </div>
-                                <div class="form-group">
-                                    <label for="comment_content">Comment</label>
+                                    <label for="comment_content">Text</label>
                                     <textarea class="form-control" rows="3" name="comment_content" id="comment_content"></textarea>
                                 </div>
-                                <button type="submit" onclick="return doCommentsValidate();" class="btn btn-primary" name="create_comment">Submit</button>
+                                <button type="submit" onclick="return doCommentsValidate();" class="btn btn-primary" name="create_comment">Comment!</button>
                             </form>
                         </div>
                         <?php } ?>

@@ -31,7 +31,9 @@ if (empty($_SESSION["user_id"])) {
         <!-- Blog Entries Column -->
         <div class="col-md-8">
             <?php
-            $query = $pdo->prepare("SELECT * FROM posts where post_status = 'published'");
+            $sql = "SELECT users.username as 'username', posts.* from posts ";
+            $sql .= "left join users on users.user_id = posts.post_author_id";
+            $query = $pdo->prepare($sql);
             $query->execute();
             ?>
             <h1 class="page-header">
