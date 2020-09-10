@@ -6,6 +6,11 @@ require_once("includes/admin_header.php");
 $select_all = $pdo->prepare("SELECT * from category");
 $select_all->execute(); // select_all contains all rows from the category table
 
+if (!isset($_SESSION["user_id"])) {
+    header("Location: ../");
+    exit();
+}
+
 
 
 if (isset($_POST["submit_add"])) { // add button

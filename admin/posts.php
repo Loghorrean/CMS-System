@@ -5,6 +5,12 @@ $sql .= "left join category on posts.post_category_id = category.cat_id ";
 $sql .= "left join users on posts.post_author_id = users.user_id";
 $select_all = $pdo->prepare($sql);
 $select_all->execute(); // select_all contains all rows from the category table
+
+if (!isset($_SESSION["user_id"])) {
+    header("Location: ../");
+    exit();
+}
+
 if (isset($_POST["submitBulk"]) && isset($_POST["checkBoxArray"])) {
     $bulk_option = $_POST["bulkOptions"];
     switch($bulk_option) {

@@ -6,6 +6,11 @@ $sql .= "left join users on comments.comment_author_id = users.user_id";
 $select_all = $pdo->prepare($sql);
 $select_all->execute(); // select_all contains all rows from the category table
 
+if (!isset($_SESSION["user_id"])) {
+    header("Location: ../");
+    exit();
+}
+
 if (isset($_POST["submit_delete"])) {
     deleteComment($_POST["comment_id"], $_POST["comment_post_id"], $pdo);
     return;

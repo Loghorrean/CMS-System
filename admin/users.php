@@ -2,6 +2,12 @@
 require_once("includes/admin_header.php");
 $select_all = $pdo->prepare("Select * from users");
 $select_all->execute(); // select_all contains all rows from the category table
+
+if (!isset($_SESSION["user_id"])) {
+    header("Location: ../");
+    exit();
+}
+
 if (isset($_POST["submit_delete"])) {
     deleteUser($_POST["user_id"], $pdo);
     return;

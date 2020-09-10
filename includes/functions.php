@@ -623,6 +623,22 @@ function showEditButton($pdo) {
     }
 }
 
-function uploadFile(string $post_image, string $post_image_temp) {
-    // work in progress
+function checkUsersCookie() {
+    if (empty($_SESSION["user_id"])) {
+        if (!empty($_COOKIE["login"]) && !empty($_COOKIE["key"])) {
+            $login = $_COOKIE["login"];
+            $key = $_COOKIE["key"];
+            $query = $pdo->prepare("SELECT * from users where username = :nam and cookie = :cook");
+            $query->bindParam(":nam", $login);
+            $query->bindParam(":cook", $key);
+            $query->execute();
+            $user = $query->fetch(PDO::FETCH_LAZY);
+            if (!empty($user)) {
+                $_SESSION["name"] = $user["username"];
+                $_SESSION["user_role"] = $user["user_role"];
+                $_SESSION["user_id"] = $user["user_id"];
+                header("Location: /");
+            }
+        }
+    }
 }

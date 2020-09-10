@@ -1,27 +1,11 @@
 <?php
 require_once("includes/db.php");
 require_once ("includes/header.php");
+checkUsersCookie();
 ?>
 <!-- Navigation -->
 <?php
 require_once("includes/navigation.php");
-if (empty($_SESSION["user_id"])) {
-    if (!empty($_COOKIE["login"]) && !empty($_COOKIE["key"])) {
-        $login = $_COOKIE["login"];
-        $key = $_COOKIE["key"];
-        $query = $pdo->prepare("SELECT * from users where username = :nam and cookie = :cook");
-        $query->bindParam(":nam", $login);
-        $query->bindParam(":cook", $key);
-        $query->execute();
-        $user = $query->fetch(PDO::FETCH_LAZY);
-        if (!empty($user)) {
-            $_SESSION["name"] = $user["username"];
-            $_SESSION["user_role"] = $user["user_role"];
-            $_SESSION["user_id"] = $user["user_id"];
-            header("Location: /");
-        }
-    }
-}
 ?>
 <!-- Page Content -->
 <div class="container">
