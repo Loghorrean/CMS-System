@@ -459,3 +459,67 @@ Stack trace:
 #3 {main}
   thrown in E:\XAMPP\htdocs\scripts\cms\includes\functions.php on line 163
 [10-Sep-2020 09:02:19 Europe/Berlin] PHP Notice:  Array to string conversion in E:\XAMPP\htdocs\scripts\cms\admin\index.php on line 27
+[10-Sep-2020 09:45:44 Europe/Berlin] PHP Notice:  Undefined index: checkBoxArray in E:\XAMPP\htdocs\scripts\cms\admin\posts.php on line 6
+[10-Sep-2020 09:53:23 Europe/Berlin] PHP Notice:  Undefined index: bulkOptions in E:\XAMPP\htdocs\scripts\cms\admin\posts.php on line 9
+[10-Sep-2020 09:53:23 Europe/Berlin] PHP Notice:  Undefined variable: line in E:\XAMPP\htdocs\scripts\cms\admin\posts.php on line 9
+[10-Sep-2020 09:53:23 Europe/Berlin] PHP Notice:  Undefined index: bulkOptions in E:\XAMPP\htdocs\scripts\cms\admin\posts.php on line 9
+[10-Sep-2020 09:53:40 Europe/Berlin] PHP Notice:  Undefined variable: line in E:\XAMPP\htdocs\scripts\cms\admin\posts.php on line 9
+[10-Sep-2020 09:53:55 Europe/Berlin] PHP Notice:  Undefined variable: line in E:\XAMPP\htdocs\scripts\cms\admin\posts.php on line 9
+[10-Sep-2020 09:54:13 Europe/Berlin] PHP Notice:  Undefined variable: line in E:\XAMPP\htdocs\scripts\cms\admin\posts.php on line 9
+[10-Sep-2020 09:54:18 Europe/Berlin] PHP Notice:  Undefined variable: line in E:\XAMPP\htdocs\scripts\cms\admin\posts.php on line 9
+[10-Sep-2020 09:54:24 Europe/Berlin] PHP Notice:  Undefined variable: line in E:\XAMPP\htdocs\scripts\cms\admin\posts.php on line 9
+[10-Sep-2020 09:59:12 Europe/Berlin] PHP Notice:  Undefined variable: line in E:\XAMPP\htdocs\scripts\cms\admin\posts.php on line 27
+[10-Sep-2020 10:00:19 Europe/Berlin] PHP Notice:  Undefined variable: line in E:\XAMPP\htdocs\scripts\cms\admin\posts.php on line 26
+[10-Sep-2020 10:00:20 Europe/Berlin] PHP Notice:  Undefined variable: line in E:\XAMPP\htdocs\scripts\cms\admin\posts.php on line 26
+[10-Sep-2020 10:00:22 Europe/Berlin] PHP Notice:  Undefined variable: line in E:\XAMPP\htdocs\scripts\cms\admin\posts.php on line 26
+[10-Sep-2020 10:00:23 Europe/Berlin] PHP Notice:  Undefined variable: line in E:\XAMPP\htdocs\scripts\cms\admin\posts.php on line 26
+[10-Sep-2020 10:00:23 Europe/Berlin] PHP Notice:  Undefined variable: line in E:\XAMPP\htdocs\scripts\cms\admin\posts.php on line 26
+[10-Sep-2020 10:00:25 Europe/Berlin] PHP Notice:  Undefined variable: line in E:\XAMPP\htdocs\scripts\cms\admin\posts.php on line 26
+[10-Sep-2020 10:12:52 Europe/Berlin] PHP Notice:  Undefined variable: line in E:\XAMPP\htdocs\scripts\cms\admin\posts.php on line 32
+[10-Sep-2020 10:12:54 Europe/Berlin] PHP Notice:  Undefined variable: line in E:\XAMPP\htdocs\scripts\cms\admin\posts.php on line 32
+[10-Sep-2020 10:13:04 Europe/Berlin] PHP Notice:  Undefined variable: line in E:\XAMPP\htdocs\scripts\cms\admin\posts.php on line 32
+[10-Sep-2020 10:13:04 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\includes\functions.php on line 347
+[10-Sep-2020 10:13:04 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\includes\functions.php on line 348
+[10-Sep-2020 10:13:15 Europe/Berlin] PHP Notice:  Undefined variable: line in E:\XAMPP\htdocs\scripts\cms\admin\posts.php on line 32
+[10-Sep-2020 10:13:15 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\includes\functions.php on line 347
+[10-Sep-2020 10:13:15 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\includes\functions.php on line 348
+[10-Sep-2020 10:13:17 Europe/Berlin] PHP Notice:  Undefined variable: line in E:\XAMPP\htdocs\scripts\cms\admin\posts.php on line 32
+[10-Sep-2020 10:13:17 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\includes\functions.php on line 347
+[10-Sep-2020 10:13:17 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\includes\functions.php on line 348
+[10-Sep-2020 10:13:18 Europe/Berlin] PHP Notice:  Undefined variable: line in E:\XAMPP\htdocs\scripts\cms\admin\posts.php on line 32
+[10-Sep-2020 10:13:18 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\includes\functions.php on line 347
+[10-Sep-2020 10:13:18 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\includes\functions.php on line 348
+[10-Sep-2020 10:13:19 Europe/Berlin] PHP Notice:  Undefined variable: line in E:\XAMPP\htdocs\scripts\cms\admin\posts.php on line 32
+[10-Sep-2020 10:13:19 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\includes\functions.php on line 347
+[10-Sep-2020 10:13:19 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in E:\XAMPP\htdocs\scripts\cms\includes\functions.php on line 348
+[10-Sep-2020 10:13:23 Europe/Berlin] PHP Notice:  Undefined variable: line in E:\XAMPP\htdocs\scripts\cms\admin\posts.php on line 32
+[10-Sep-2020 10:13:24 Europe/Berlin] PHP Notice:  Undefined variable: line in E:\XAMPP\htdocs\scripts\cms\admin\posts.php on line 32
+[10-Sep-2020 10:13:34 Europe/Berlin] PHP Notice:  Undefined variable: line in E:\XAMPP\htdocs\scripts\cms\admin\posts.php on line 32
+[10-Sep-2020 10:13:36 Europe/Berlin] PHP Notice:  Undefined variable: line in E:\XAMPP\htdocs\scripts\cms\admin\posts.php on line 32
+[10-Sep-2020 10:13:38 Europe/Berlin] PHP Notice:  Undefined variable: line in E:\XAMPP\htdocs\scripts\cms\admin\posts.php on line 32
+[10-Sep-2020 10:13:45 Europe/Berlin] PHP Notice:  Undefined variable: line in E:\XAMPP\htdocs\scripts\cms\admin\posts.php on line 32
+[10-Sep-2020 10:13:52 Europe/Berlin] PHP Notice:  Undefined variable: line in E:\XAMPP\htdocs\scripts\cms\admin\posts.php on line 32
+[10-Sep-2020 10:13:52 Europe/Berlin] PHP Notice:  Undefined variable: line in E:\XAMPP\htdocs\scripts\cms\admin\posts.php on line 32
+[10-Sep-2020 10:13:53 Europe/Berlin] PHP Notice:  Undefined variable: line in E:\XAMPP\htdocs\scripts\cms\admin\posts.php on line 32
+[10-Sep-2020 10:13:55 Europe/Berlin] PHP Notice:  Undefined variable: line in E:\XAMPP\htdocs\scripts\cms\admin\posts.php on line 32
+[10-Sep-2020 10:13:56 Europe/Berlin] PHP Notice:  Undefined variable: line in E:\XAMPP\htdocs\scripts\cms\admin\posts.php on line 32
+[10-Sep-2020 10:14:01 Europe/Berlin] PHP Notice:  Undefined variable: line in E:\XAMPP\htdocs\scripts\cms\admin\posts.php on line 32
+[10-Sep-2020 10:14:07 Europe/Berlin] PHP Notice:  Undefined variable: line in E:\XAMPP\htdocs\scripts\cms\admin\posts.php on line 32
+[10-Sep-2020 10:14:07 Europe/Berlin] PHP Notice:  Undefined variable: line in E:\XAMPP\htdocs\scripts\cms\admin\posts.php on line 32
+[10-Sep-2020 10:14:15 Europe/Berlin] PHP Notice:  Undefined variable: line in E:\XAMPP\htdocs\scripts\cms\admin\posts.php on line 32
+[10-Sep-2020 10:14:16 Europe/Berlin] PHP Notice:  Undefined variable: line in E:\XAMPP\htdocs\scripts\cms\admin\posts.php on line 32
+[10-Sep-2020 10:14:21 Europe/Berlin] PHP Notice:  Undefined variable: line in E:\XAMPP\htdocs\scripts\cms\admin\posts.php on line 32
+[10-Sep-2020 10:15:09 Europe/Berlin] PHP Notice:  Undefined variable: line in E:\XAMPP\htdocs\scripts\cms\admin\posts.php on line 32
+[10-Sep-2020 10:15:12 Europe/Berlin] PHP Notice:  Undefined variable: line in E:\XAMPP\htdocs\scripts\cms\admin\posts.php on line 32
+[10-Sep-2020 10:15:16 Europe/Berlin] PHP Notice:  Undefined variable: line in E:\XAMPP\htdocs\scripts\cms\admin\posts.php on line 32
+[10-Sep-2020 10:15:16 Europe/Berlin] PHP Notice:  Undefined variable: line in E:\XAMPP\htdocs\scripts\cms\admin\posts.php on line 32
+[10-Sep-2020 10:15:17 Europe/Berlin] PHP Notice:  Undefined variable: line in E:\XAMPP\htdocs\scripts\cms\admin\posts.php on line 32
+[10-Sep-2020 10:15:19 Europe/Berlin] PHP Notice:  Undefined variable: line in E:\XAMPP\htdocs\scripts\cms\admin\posts.php on line 32
+[10-Sep-2020 10:15:32 Europe/Berlin] PHP Notice:  Undefined variable: line in E:\XAMPP\htdocs\scripts\cms\admin\posts.php on line 32
+[10-Sep-2020 10:15:34 Europe/Berlin] PHP Notice:  Undefined variable: line in E:\XAMPP\htdocs\scripts\cms\admin\posts.php on line 32
+[10-Sep-2020 10:15:37 Europe/Berlin] PHP Notice:  Undefined variable: line in E:\XAMPP\htdocs\scripts\cms\admin\posts.php on line 32
+[10-Sep-2020 10:15:38 Europe/Berlin] PHP Notice:  Undefined variable: line in E:\XAMPP\htdocs\scripts\cms\admin\posts.php on line 32
+[10-Sep-2020 10:15:39 Europe/Berlin] PHP Notice:  Undefined variable: line in E:\XAMPP\htdocs\scripts\cms\admin\posts.php on line 32
+[10-Sep-2020 10:17:15 Europe/Berlin] PHP Notice:  Undefined index: checkBoxArray in E:\XAMPP\htdocs\scripts\cms\admin\posts.php on line 7
+[10-Sep-2020 10:17:15 Europe/Berlin] PHP Warning:  Invalid argument supplied for foreach() in E:\XAMPP\htdocs\scripts\cms\admin\posts.php on line 7
+[10-Sep-2020 10:28:36 Europe/Berlin] PHP Notice:  Undefined variable: bulk_option in E:\XAMPP\htdocs\scripts\cms\admin\posts.php on line 34

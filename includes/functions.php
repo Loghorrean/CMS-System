@@ -209,6 +209,20 @@ function deleteCategory(int $cat_id, $pdo) { // deleting a category
     }
 }
 
+function deletePost(int $p_id, $pdo) {
+    try {
+        $query = $pdo->prepare("DELETE from posts where post_id = :id");
+        $query->bindParam(":id", $p_id);
+        $query->execute();
+        $query = NULL;
+        return;
+    } catch (PDOException $e) {
+        $_SESSION["error"] = "Something went wrong: {$e->getMessage()}";
+        error_log($e->getMessage());
+        exit();
+    }
+}
+
 
 /* Edit functions */
 
@@ -221,7 +235,7 @@ function editCategory(string $cat_title, int $cat_id, $pdo) { // editing a categ
         $query->bindParam(":id", $cat_id);
         $query->execute();
         $query = NULL;
-        $_SESSION["success"] = "Category succesfully edited!";
+        $_SESSION["success"] = "Category successfully edited!";
         header("Location: categories.php");
         exit();
     } catch (PDOException $e) {
@@ -552,4 +566,18 @@ function generateSalt()
         $salt .= chr(mt_rand(33,126));
     }
     return $salt;
+}
+
+function setPostStatus(string $post_status, int $p_id, $pdo) {
+    try {
+        $query = $pdo->prepare("UPDATE posts set post_status = :stat where post_id = :id");
+        $query->bindParam(":stat", $post_status);
+        $query->bindParam(":id", $p_id);
+        $query->execute();
+        return true;
+    } catch (PDOException $e) {
+        $_SESSION["error"] = "Something went wrong: {$e->getMessage()}";
+        error_log($e->getMessage());
+        exit();
+    }
 }

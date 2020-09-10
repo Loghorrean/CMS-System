@@ -1,15 +1,15 @@
-<form>
+<form action="" method = "POST">
 <table class = "table table-bordered table-hover">
     <div id = "bulkOptionsContainer" class = "col-xs-4">
-        <select class = "form-control" name="" id="">
-            <option value="" disabled>Select Option</option>
-            <option value="">Publish</option>
-            <option value="">Draft</option>
-            <option value="">Delete</option>
+        <select class = "form-control" name="bulkOptions" id="">
+            <option value="none" disabled>Select Option</option>
+            <option value="published">Publish</option>
+            <option value="draft">Draft</option>
+            <option value="delete">Delete</option>
         </select>
     </div>
     <div class = "col-xs-4">
-        <input type="submit" name="submit" class="btn btn-success" value="Apply">
+        <input type="submit" name="submitBulk" class="btn btn-success" value="Apply">
         <a href="add_post.php" class="btn btn-primary">Add New</a>
     </div>
     <thead>

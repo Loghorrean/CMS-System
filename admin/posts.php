@@ -2,6 +2,35 @@
 require_once("includes/admin_header.php");
 $select_all = $pdo->prepare("select category.cat_title as 'cat_title', posts.* from posts left join category on posts.post_category_id = category.cat_id");
 $select_all->execute(); // select_all contains all rows from the category table
+if (isset($_POST["submitBulk"]) && isset($_POST["checkBoxArray"])) {
+    $bulk_option = $_POST["bulkOptions"];
+    switch($bulk_option) {
+        case "published":
+            foreach ($_POST["checkBoxArray"] as $p_id) {
+                setPostStatus("published", $p_id, $pdo);
+                header("Location: posts.php");
+            }
+            break;
+        case "draft" :
+            foreach ($_POST["checkBoxArray"] as $p_id) {
+                setPostStatus("draft", $p_id, $pdo);
+                header("Location: posts.php");
+            }
+            break;
+        case "delete":
+            foreach ($_POST["checkBoxArray"] as $p_id) {
+                deletePost($p_id, $pdo);
+                header("Location: posts.php");
+            }
+            break;
+    }
+}
+if (isset($_POST["submit_delete"])) {
+    deletePost($_POST["post_id"], $pdo);
+    $_SESSION["success"] = "Post deleted";
+    header("Location: posts.php");
+    exit();
+}
 ?>
 
 
