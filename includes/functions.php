@@ -568,6 +568,13 @@ function generateSalt()
     return $salt;
 }
 
+function test_input($data) {
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+}
+
 function setPostStatus(string $post_status, int $p_id, $pdo) {
     try {
         $query = $pdo->prepare("UPDATE posts set post_status = :stat where post_id = :id");
@@ -579,5 +586,23 @@ function setPostStatus(string $post_status, int $p_id, $pdo) {
         $_SESSION["error"] = "Something went wrong: {$e->getMessage()}";
         error_log($e->getMessage());
         exit();
+    }
+}
+
+function showEditButton($pdo) {
+    if (isset($_SESSION["user_id"]) && isset($_GET["p_id"])) {
+        $stmt = $pdo->prepare("SELECT post_author from posts where post_id = :id");
+        $stmt->bindParam(":id", $_GET["p_id"]);
+        $stmt->execute();
+        $user = $stmt->fetch(PDO::FETCH_LAZY);
+        if ($_SESSION["name"] == $user["post_author"] || $_SESSION["user_role"] == "admin") {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+    else {
+        return false;
     }
 }

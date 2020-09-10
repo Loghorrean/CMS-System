@@ -52,6 +52,9 @@ require_once("includes/navigation.php");
                 else {
                     showPosts($query, false, false);
                 }
+                if (showEditButton($pdo)) {
+                    echo '<a class="btn btn-primary" style="" href="admin/posts.php?source=edit_post&p_id=' . $_GET["p_id"] . '">Edit Post</a>';
+                }
                 ?>
                 <!-- Comments Form -->
                 <div class="well">

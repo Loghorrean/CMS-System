@@ -18,3 +18,10 @@ function doCommentsValidate() {
     }
     return false;
 }
+function doUsersValidate() {
+    try {
+
+    } catch (e) {
+
+    }
+}
