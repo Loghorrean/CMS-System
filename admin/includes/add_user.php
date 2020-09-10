@@ -46,6 +46,6 @@ if (isset($_POST["add_user"])) {
         <input type="text" class = "form-control" name="user_password" id = "user_password">
     </div>
     <div class = "form-group">
-        <input type="submit" name="add_user" value = "Add User" class = "btn btn-primary">
+        <input onclick = "return doUsersValidate();" type="submit" name="add_user" value = "Add User" class = "btn btn-primary">
     </div>
 </form>

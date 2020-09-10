@@ -4,15 +4,7 @@ if (isset($_GET["p_id"])) {
         header("Location: posts.php");
         return;
     }
-    $query = $pdo->prepare("SELECT post_id from posts where post_id = :id");
-    $query->bindParam(":id", $_GET["p_id"]);
-    $query->execute();
-    $row = $query->fetch(PDO::FETCH_LAZY);
-    if (!$row) {
-        $_SESSION["error"] = "No given id in the database";
-        header("Location: posts.php");
-        return;
-    }
+    $row = findPostsById($_GET["p_id"], $pdo);
 }
 if (isset($_POST["edit_post"])) {
     $post_image = $_FILES["post_image"]["name"];
@@ -35,8 +27,8 @@ $query->execute();
 $row = $query->fetch(PDO::FETCH_LAZY);
 $post_status = $row["post_status"];
 $post_cat_id = $row["post_category_id"];
-$query = $pdo->prepare("SELECT * from category"); // to dynamically view categories
-$query->execute();
+$categories = $pdo->prepare("SELECT * from category"); // to dynamically view categories
+$categories->execute();
 ?>
 <form action="" method="POST" enctype="multipart/form-data">
     <div class = "form-group">
@@ -47,7 +39,7 @@ $query->execute();
         <label for = "post_category_id">Post Category</label><br>
         <select name="post_category_id" id = "post_category_id">
             <?php
-            while ($category = $query->fetch(PDO::FETCH_LAZY)) { // categories
+            while ($category = $categories->fetch(PDO::FETCH_LAZY)) { // categories
                 $cat_id = $category["cat_id"];
                 $cat_title = $category["cat_title"];
                 $selected = $cat_id == $post_cat_id ? "selected" : "";

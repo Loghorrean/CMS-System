@@ -1,6 +1,12 @@
 <?php
 if (isset($_POST["create_post"])) {
-	insertPost($pdo);
+    $post_image = $_FILES["post_image"]["name"];
+    $post_image_temp = $_FILES["post_image"]["tmp_name"];
+    move_uploaded_file($post_image_temp, "../images/$post_image");
+    $values = ["post_title" => $_POST["post_title"], "post_cat_id" => $_POST["post_category_id"],
+    "post_author" => $_POST["post_author"], "post_image" => $post_image, "post_tags" => $_POST["post_tags"],
+    "post_content" => $_POST["content"], "post_status" => $_POST["post_status"]];
+	insertPost($values, $pdo);
 }
 $query = $pdo->prepare("SELECT * from category");
 $query->execute();

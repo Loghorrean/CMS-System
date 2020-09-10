@@ -2,7 +2,6 @@
 $categories = $pdo->prepare("SELECT * from category");
 $categories->execute();
 $showAdminButton = false;
-$showEditButton = false;
 if (isset($_SESSION["user_id"]) && $_SESSION["user_role"] === "admin") {
     $showAdminButton = true;
 }

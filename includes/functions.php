@@ -144,30 +144,38 @@ function checkPassword(string $password) {
     }
 }
 
+function filterInput($value) {
+    $value = trim($value);
+    $value = stripslashes($value);
+    $value = htmlspecialchars($value);
+    return $value;
+}
+
 
 /* Insert functions */
 
 
-function insertPost($pdo) { // adding a post
-    $post_image = $_FILES["post_image"]["name"];
-    $post_image_temp = $_FILES["post_image"]["tmp_name"];
-    move_uploaded_file($post_image_temp, "../images/$post_image");
-    $query = $pdo->prepare("INSERT into posts (post_category_id, post_title, post_author, post_date, post_image, post_content, post_tags, post_status) VALUES (:cat_id, :ttl, :auth, now(), :img, :cnt, :tag, :stat)");
-    $query->bindParam(":cat_id", $_POST["post_category_id"]);
-    $query->bindParam(":ttl", $_POST["post_title"]);
-    $query->bindParam(":auth", $_POST["post_author"]);
-    $query->bindParam(":img", $post_image);
-    $query->bindParam(":cnt", $_POST["post_content"]);
-    $query->bindParam(":tag", $_POST["post_tags"]);
-    $query->bindParam(":stat", $_POST["post_status"]);
-    if ($query->execute()) {
+function insertPost($values, $pdo) { // adding a post
+    foreach($values as &$v) {
+        $v = filterInput($v);
+    }
+    try {
+        $query = $pdo->prepare("INSERT into posts (post_category_id, post_title, post_author, post_date, post_image, post_content, post_tags, post_status) VALUES (:cat_id, :ttl, :auth, now(), :img, :cnt, :tag, :stat)");
+        $query->bindParam(":cat_id", $values["post_cat_id"]);
+        $query->bindParam(":ttl", $values["post_title"]);
+        $query->bindParam(":auth", $values["post_author"]);
+        $query->bindParam(":img", $values["post_image"]);
+        $query->bindParam(":cnt", $values["post_content"]);
+        $query->bindParam(":tag", $values["post_tags"]);
+        $query->bindParam(":stat", $values["post_status"]);
+        $query->execute();
+        $query = NULL;
         $_SESSION["success"] = "Post added!";
         header("Location: posts.php");
         exit();
-    }
-    else {
-        $_SESSION["error"] = "Smth went wrong!";
-        header("Location: posts.php");
+    } catch(PDOException $e) {
+        $_SESSION["error"] = "SQL exception: {$e->getMessage()}";
+        error_log($e->getMessage());
         exit();
     }
 }
@@ -183,7 +191,7 @@ function insertCategory(string $cat_title, $pdo) { // adding a category
         header("Location: categories.php");
         exit();
     }   catch (PDOException $e) {
-        $_SESSION["error"] = "Something went wrong: {$e->getMessage()}";
+        $_SESSION["error"] = "SQL exception: {$e->getMessage()}";
         error_log($e->getMessage());
         exit();
     }
@@ -605,4 +613,8 @@ function showEditButton($pdo) {
     else {
         return false;
     }
+}
+
+function uploadFile(string $post_image, string $post_image_temp) {
+
 }
