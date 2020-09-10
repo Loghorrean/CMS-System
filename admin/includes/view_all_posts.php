@@ -10,7 +10,7 @@
     </div>
     <div class = "col-xs-4">
         <input type="submit" name="submitBulk" class="btn btn-success" value="Apply">
-        <a href="add_post.php" class="btn btn-primary">Add New</a>
+        <a href="posts.php?source=add_post" class="btn btn-primary">Add New</a>
     </div>
     <thead>
         <tr>
