@@ -46,7 +46,9 @@ if (empty($_SESSION["user_id"])) {
             if ($check["count"] == 0) {
                 echo '<h1 class="text-center">No Published Posts Yet</h1>';
             }
+            else {
                 showPosts($query, true, true);
+            }
             ?>
             <!-- Pager -->
             <ul class="pager">

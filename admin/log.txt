@@ -523,3 +523,4 @@ Stack trace:
 [10-Sep-2020 10:17:15 Europe/Berlin] PHP Notice:  Undefined index: checkBoxArray in E:\XAMPP\htdocs\scripts\cms\admin\posts.php on line 7
 [10-Sep-2020 10:17:15 Europe/Berlin] PHP Warning:  Invalid argument supplied for foreach() in E:\XAMPP\htdocs\scripts\cms\admin\posts.php on line 7
 [10-Sep-2020 10:28:36 Europe/Berlin] PHP Notice:  Undefined variable: bulk_option in E:\XAMPP\htdocs\scripts\cms\admin\posts.php on line 34
+[10-Sep-2020 16:16:06 Europe/Berlin] PHP Notice:  Undefined index: name in E:\XAMPP\htdocs\scripts\cms\admin\includes\admin_navigation.php on line 17

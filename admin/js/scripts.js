@@ -1,3 +1,4 @@
+// creating a WYSIWYG editor
 $(document).ready(function() {
     ClassicEditor
         .create( document.querySelector( '#body' ) )
@@ -5,6 +6,7 @@ $(document).ready(function() {
             console.error( error );
         } );
 });
+// select all checkboxes with one
 $(document).ready(function() {
     $('#selectAllBoxes').click(function(event) {
         if (this.checked) {

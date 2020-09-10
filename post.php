@@ -40,7 +40,18 @@ require_once("includes/navigation.php");
             <div class="col-lg-8">
 
                 <?php
-                showPosts($query, false, false);
+                $stmt = $pdo->prepare("SELECT count(post_id) as 'count' from posts where post_status = 'published' and post_id = :id");
+                $stmt->bindParam(":id", $_REQUEST["p_id"]);
+                $stmt->execute();
+                $check = $stmt->fetch(PDO::FETCH_LAZY);
+                if ($check["count"] == 0) {
+                    $_SESSION["error"] = "Post is not available or does not exist";
+                    header("Location: ./");
+                    exit();
+                }
+                else {
+                    showPosts($query, false, false);
+                }
                 ?>
                 <!-- Comments Form -->
                 <div class="well">
@@ -62,7 +73,7 @@ require_once("includes/navigation.php");
                             <label for="comment_content">Comment</label>
                             <textarea class="form-control" rows="3" name="comment_content" id="comment_content"></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary" name="create_comment">Submit</button>
+                        <button type="submit" onclick="return doCommentsValidate();" class="btn btn-primary" name="create_comment">Submit</button>
                     </form>
                 </div>
 
