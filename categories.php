@@ -6,16 +6,12 @@ if (isset($_GET["cat"])) {
         return;
     }
 }
-$sql = "SELECT users.username as 'username', posts.* FROM posts ";
-$sql .= " left join users on users.user_id = posts.post_author_id ";
+$sql = "SELECT users.username as 'username', posts.*, (SELECT count(post_id) from posts where post_category_id = :id and post_status = 'published') as 'count' FROM posts ";
+$sql .= "left join users on users.user_id = posts.post_author_id ";
 $sql .= "where post_category_id = :id and post_status = 'published'";
 $query = $pdo->prepare($sql);
 $query->bindParam(":id", $_GET["cat"]);
 $query->execute();
-$stmt = $pdo->prepare("SELECT count(post_id) as 'count' from posts where post_category_id = :id and post_status = 'published'");
-$stmt->bindParam(":id", $_GET["cat"]);
-$stmt->execute();
-$check = $stmt->fetch(PDO::FETCH_LAZY);
 ?>
     <!-- Navigation -->
 <?php
@@ -34,12 +30,7 @@ require_once("includes/navigation.php");
 
             <!-- First Blog Post -->
             <?php
-            if ($check["count"] == 0) {
-                echo '<h1 class="text-center">No Published Posts Yet</h1>';
-            }
-            else {
                 showPosts($query, true, true);
-            }
             ?>
             <!-- Pager -->
             <ul class="pager">

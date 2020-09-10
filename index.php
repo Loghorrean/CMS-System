@@ -31,26 +31,17 @@ if (empty($_SESSION["user_id"])) {
         <!-- Blog Entries Column -->
         <div class="col-md-8">
             <?php
-            $sql = "SELECT users.username as 'username', posts.* from posts ";
-            $sql .= "left join users on users.user_id = posts.post_author_id";
+            $sql = "SELECT users.username as 'username', posts.*, (select count(post_id) from posts where post_status = 'published') as 'count' from posts ";
+            $sql .= "left join users on users.user_id = posts.post_author_id where post_status = 'published'";
             $query = $pdo->prepare($sql);
             $query->execute();
             ?>
             <h1 class="page-header">
                 Main Page
             </h1>
-
             <!-- First Blog Post -->
             <?php
-            $stmt = $pdo->prepare("SELECT count(post_id) as 'count' from posts where post_status = 'published'");
-            $stmt->execute();
-            $check = $stmt->fetch(PDO::FETCH_LAZY);
-            if ($check["count"] == 0) {
-                echo '<h1 class="text-center">No Published Posts Yet</h1>';
-            }
-            else {
                 showPosts($query, true, true);
-            }
             ?>
             <!-- Pager -->
             <ul class="pager">

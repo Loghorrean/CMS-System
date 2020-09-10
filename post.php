@@ -2,15 +2,21 @@
 require_once("includes/header.php");
 if (isset($_GET["p_id"])) {
     if (!checkId($_GET["p_id"])) {
-        header("Location: index.php");
+        header("Location: ./");
         exit();
     }
-    $sql = "SELECT users.username as 'username', posts.* from posts ";
-    $sql .= "left join users on users.user_id = posts.post_author_id where post_id = :id";
+    $sql = "SELECT users.username as 'username', posts.*, (SELECT count(post_id) from posts where post_id = :id and post_status = 'published') as 'count' from posts ";
+    $sql .= "left join users on users.user_id = posts.post_author_id where post_id = :id and post_status = 'published'";
     $query = $pdo->prepare($sql);
     $query->bindParam(":id", $_GET["p_id"]);
     $query->execute();
+    $row = $query->fetch(PDO::FETCH_LAZY);
+    if ($row["count"] == 0) {
+        header("Location: ./");
+        exit();
+    }
 }
+
 if (isset($_POST["create_comment"])) {
     $values = ["post_id" => $_GET["p_id"], "comment_email" => $_POST["comment_email"]];
     $values["comment_author"] = $_POST["comment_author"];
@@ -22,6 +28,7 @@ if (isset($_POST["create_comment"])) {
     insertComment($values, $pdo);
     return;
 }
+
 // uploading some comments
 $sql = "SELECT * from comments where comment_post_id = :id ";
 $sql .= "and comment_status = 'Approved' Order By comment_id DESC";
@@ -42,18 +49,8 @@ require_once("includes/navigation.php");
             <div class="col-lg-8">
 
                 <?php
-                $stmt = $pdo->prepare("SELECT count(post_id) as 'count' from posts where post_status = 'published' and post_id = :id");
-                $stmt->bindParam(":id", $_REQUEST["p_id"]);
-                $stmt->execute();
-                $check = $stmt->fetch(PDO::FETCH_LAZY);
-                if ($check["count"] == 0) {
-                    $_SESSION["error"] = "Post is not available or does not exist";
-                    header("Location: ./");
-                    exit();
-                }
-                else {
-                    showPosts($query, false, false);
-                }
+                $post_content = $row["post_content"];
+                showPost($row, $post_content);
                 if (showEditButton($pdo)) {
                     echo '<a class="btn btn-primary" style="" href="admin/posts.php?source=edit_post&p_id=' . $_GET["p_id"] . '">Edit Post</a>';
                 }
