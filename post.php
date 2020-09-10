@@ -57,34 +57,35 @@ require_once("includes/navigation.php");
                 }
                 ?>
                 <!-- Comments Form -->
-                <div class="well">
                     <?php
                     showError();
                     showSuccess();
                     ?>
-                    <h4>Leave a Comment:</h4>
-                    <form action="" method="POST" role="form">
-                        <div class="form-group">
-                            <label for="comment_author">Author</label>
-                            <input type="text" class="form-control" name="comment_author" id="comment_author">
+                    <?php
+                    if (isset($_SESSION["user_id"])) { ?>
+                        <div class="well">
+                            <h4>Leave a Comment:</h4>
+                            <form action="" method="POST" role="form">
+                                <div class="form-group">
+                                    <label for="comment_author">Author</label>
+                                    <input type="text" class="form-control" name="comment_author" id="comment_author">
+                                </div>
+                                <div class="form-group">
+                                    <label for="comment_email">Email</label>
+                                    <input type="text" class="form-control" name="comment_email" id="comment_email">
+                                </div>
+                                <div class="form-group">
+                                    <label for="comment_content">Comment</label>
+                                    <textarea class="form-control" rows="3" name="comment_content" id="comment_content"></textarea>
+                                </div>
+                                <button type="submit" onclick="return doCommentsValidate();" class="btn btn-primary" name="create_comment">Submit</button>
+                            </form>
                         </div>
-                        <div class="form-group">
-                            <label for="comment_email">Email</label>
-                            <input type="text" class="form-control" name="comment_email" id="comment_email">
-                        </div>
-                        <div class="form-group">
-                            <label for="comment_content">Comment</label>
-                            <textarea class="form-control" rows="3" name="comment_content" id="comment_content"></textarea>
-                        </div>
-                        <button type="submit" onclick="return doCommentsValidate();" class="btn btn-primary" name="create_comment">Submit</button>
-                    </form>
-                </div>
-
-                <hr>
-
+                        <?php } ?>
                 <!-- Posted Comments -->
 
                 <!-- Comment -->
+                <h3>Comment section</h3>
                 <?php
                 while ($comment = $comments->fetch(PDO::FETCH_LAZY)) {
                 ?>
