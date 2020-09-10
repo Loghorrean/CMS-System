@@ -38,7 +38,4 @@ require_once("../includes/functions.php");
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <!--CDN Editor-->
     <script src="https://cdn.ckeditor.com/ckeditor5/22.0.0/classic/ckeditor.js"></script>
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
-    <script src="js/scripts.js"></script>
 </head>
