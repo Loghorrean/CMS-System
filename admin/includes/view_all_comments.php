@@ -21,8 +21,8 @@
         <tr>
             <td><?=htmlspecialchars($row["comment_id"])?></td>
             <td><?=htmlspecialchars($row["comment_post_id"])?></td>
-            <td><?=htmlspecialchars($row["comment_email"])?></td>
-            <td><?=htmlspecialchars($row["comment_author"])?></td>
+            <td><?=htmlspecialchars($row["user_email"])?></td>
+            <td><?=htmlspecialchars($row["username"])?></td>
             <td><?=htmlspecialchars($row["comment_content"])?></td>
             <td><a href="../post.php?p_id=<?=$row["comment_post_id"]?>"><?=htmlspecialchars($row["post_title"])?></a></td>
             <td><?=htmlspecialchars($row["comment_status"])?></td>

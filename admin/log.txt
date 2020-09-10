@@ -528,3 +528,13 @@ Stack trace:
 [10-Sep-2020 20:02:26 Europe/Berlin] PHP Notice:  Undefined index: content in E:\XAMPP\htdocs\scripts\cms\admin\includes\add_post.php on line 8
 [10-Sep-2020 20:02:26 Europe/Berlin] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'post_author' in 'field list'
 [10-Sep-2020 20:02:46 Europe/Berlin] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'post_author' in 'field list'
+[10-Sep-2020 20:10:38 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'posts.post_post_title as 'post_title', users.username as 'username', users.user_' at line 1 in E:\XAMPP\htdocs\scripts\cms\admin\comments.php:7
+Stack trace:
+#0 E:\XAMPP\htdocs\scripts\cms\admin\comments.php(7): PDOStatement->execute()
+#1 {main}
+  thrown in E:\XAMPP\htdocs\scripts\cms\admin\comments.php on line 7
+[10-Sep-2020 20:13:26 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'posts.post_post_title' in 'field list' in E:\XAMPP\htdocs\scripts\cms\admin\comments.php:7
+Stack trace:
+#0 E:\XAMPP\htdocs\scripts\cms\admin\comments.php(7): PDOStatement->execute()
+#1 {main}
+  thrown in E:\XAMPP\htdocs\scripts\cms\admin\comments.php on line 7

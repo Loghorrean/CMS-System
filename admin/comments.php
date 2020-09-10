@@ -1,6 +1,9 @@
 <?php
 require_once("includes/admin_header.php");
-$select_all = $pdo->prepare("Select comments.*, posts.post_title as 'post_title' from comments inner join posts on comments.comment_post_id = posts.post_id");
+$sql = "SELECT posts.post_title as 'post_title', users.username as 'username', users.user_email as 'user_email', comments.* from comments ";
+$sql .= "inner join posts on comments.comment_post_id = posts.post_id ";
+$sql .= "left join users on comments.comment_author_id = users.user_id";
+$select_all = $pdo->prepare($sql);
 $select_all->execute(); // select_all contains all rows from the category table
 
 if (isset($_POST["submit_delete"])) {

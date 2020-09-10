@@ -20,6 +20,7 @@ if (isset($_POST["login"])) {
                 $_SESSION["name"] = $user["username"];
                 $_SESSION["user_role"] = $user["user_role"];
                 $_SESSION["user_id"] = $user["user_id"];
+                $_SESSION["user_email"] = $user["user_email"];
                 if (isset($_POST["remember"]) && $_POST["remember"] == 1) {
                     $key = generateSalt();
                     setcookie("login", $user["username"], time()+60*60*24, "/");

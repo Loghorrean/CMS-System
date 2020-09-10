@@ -387,13 +387,12 @@ function insertComment(array $values, $pdo) { // inserting a comment
         trim($v);
     }
     try {
-        $sql = "INSERT INTO comments (comment_post_id, comment_email, comment_author, ";
+        $sql = "INSERT INTO comments (comment_post_id, comment_author_id, ";
         $sql .= "comment_content, comment_status, comment_date";
-        $sql .= ") VALUES (:post_id, :mail, :auth, :cont, 'Unapproved', now())";
+        $sql .= ") VALUES (:post_id, :auth, :cont, 'Unapproved', now())";
         $query = $pdo->prepare($sql);
         $query->bindParam(":post_id", $values["post_id"]);
-        $query->bindParam(":mail", $values["comment_email"]);
-        $query->bindParam(":auth", $values["comment_author"]);
+        $query->bindParam(":auth", $_SESSION["username"]);
         $query->bindParam(":cont", $values["comment_content"]);
         $query->execute();
         $query = $pdo->prepare("UPDATE posts SET post_comment_count = post_comment_count + 1 where post_id = :id");
@@ -498,7 +497,7 @@ function unapproveComment($com_id, $pdo) {
         $query = $pdo->prepare("UPDATE comments set comment_status = 'Unapproved' where comment_id = :id");
         $query->bindParam(":id", $com_id);
         $query->execute();
-        $_SESSION["success"] = "Comment approved!";
+        $_SESSION["success"] = "Comment unapproved!";
         header("Location: comments.php");
         exit();
     } catch (PDOException $e) {
@@ -576,13 +575,6 @@ function generateSalt()
     return $salt;
 }
 
-function test_input($data) {
-    $data = trim($data);
-    $data = stripslashes($data);
-    $data = htmlspecialchars($data);
-    return $data;
-}
-
 function setPostStatus(string $post_status, int $p_id, $pdo) {
     try {
         $query = $pdo->prepare("UPDATE posts set post_status = :stat where post_id = :id");
@@ -599,11 +591,11 @@ function setPostStatus(string $post_status, int $p_id, $pdo) {
 
 function showEditButton($pdo) {
     if (isset($_SESSION["user_id"]) && isset($_GET["p_id"])) {
-        $stmt = $pdo->prepare("SELECT post_author from posts where post_id = :id");
+        $stmt = $pdo->prepare("SELECT post_author_id from posts where post_id = :id");
         $stmt->bindParam(":id", $_GET["p_id"]);
         $stmt->execute();
         $user = $stmt->fetch(PDO::FETCH_LAZY);
-        if ($_SESSION["name"] == $user["post_author"] || $_SESSION["user_role"] == "admin") {
+        if ($_SESSION["user_id"] == $user["post_author_id"] || $_SESSION["user_role"] == "admin") {
             return true;
         }
         else {
@@ -616,5 +608,5 @@ function showEditButton($pdo) {
 }
 
 function uploadFile(string $post_image, string $post_image_temp) {
-
+    // work in progress
 }
