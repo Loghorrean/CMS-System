@@ -21,6 +21,9 @@
                             </span>
                         <?php } ?>
                     </div>
+                    <div class = "input-group">
+                        <input type="checkbox" name="remember" value="1"> Remember me
+                    </div>
                 </form>
                 <!-- /.input-group -->
             </div>

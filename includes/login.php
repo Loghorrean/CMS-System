@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once("db.php");
+require_once("functions.php");
 if (isset($_POST["login"])) {
     if (empty($_POST["username"]) || empty($_POST["password"])) {
         $_SESSION["error"] = "All fields are required!";
@@ -19,6 +20,15 @@ if (isset($_POST["login"])) {
                 $_SESSION["name"] = $user["username"];
                 $_SESSION["user_role"] = $user["user_role"];
                 $_SESSION["user_id"] = $user["user_id"];
+                if (isset($_POST["remember"]) && $_POST["remember"] == 1) {
+                    $key = generateSalt();
+                    setcookie("login", $user["username"], time()+60*60*24, "/");
+                    setcookie("key", $key, time()+60*60*24, "/");
+                    $query = $pdo->prepare("UPDATE users set cookie = :cook where user_id = :id");
+                    $query->bindParam(":cook", $key);
+                    $query->bindParam(":id", $user["user_id"]);
+                    $query->execute();
+                }
                 $_SESSION["success"] = "You are logged in!";
                 header("Location: ../");
                 exit();

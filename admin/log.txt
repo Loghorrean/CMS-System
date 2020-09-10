@@ -458,3 +458,4 @@ Stack trace:
 #2 E:\XAMPP\htdocs\scripts\cms\admin\posts.php(33): require('E:\\XAMPP\\htdocs...')
 #3 {main}
   thrown in E:\XAMPP\htdocs\scripts\cms\includes\functions.php on line 163
+[10-Sep-2020 09:02:19 Europe/Berlin] PHP Notice:  Array to string conversion in E:\XAMPP\htdocs\scripts\cms\admin\index.php on line 27
