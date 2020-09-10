@@ -17,7 +17,7 @@ if (isset($_POST["edit_post"])) {
         $post_image = $query->fetch(PDO::FETCH_LAZY)["post_image"];
     }
     $values = ["post_id" => $_POST["post_id"], "title" => $_POST["post_title"], "cat_id" => $_POST["post_category_id"],
-    "author" => $_POST["post_author"], "image" => $post_image, "tags" => $_POST["post_tags"],
+    "post_author_id" => $_SESSION["user_id"], "image" => $post_image, "tags" => $_POST["post_tags"],
     "content" => $_POST["post_content"], "status" => $_POST["post_status"]];
     editPost($values, $pdo);
 }
@@ -47,10 +47,6 @@ $categories->execute();
             }
             ?>
         </select>
-    </div>
-    <div class = "form-group">
-        <label for = "post_author">Post Author</label>
-        <input type="text" id = "post_author" class = "form-control" name="post_author" value="<?=htmlspecialchars($row["post_author"])?>">
     </div>
     <div class = "form-group">
         <label for = "post_image">Post Image</label><br>

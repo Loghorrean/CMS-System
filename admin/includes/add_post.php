@@ -4,8 +4,8 @@ if (isset($_POST["create_post"])) {
     $post_image_temp = $_FILES["post_image"]["tmp_name"];
     move_uploaded_file($post_image_temp, "../images/$post_image");
     $values = ["post_title" => $_POST["post_title"], "post_cat_id" => $_POST["post_category_id"],
-    "post_author" => $_POST["post_author"], "post_image" => $post_image, "post_tags" => $_POST["post_tags"],
-    "post_content" => $_POST["content"], "post_status" => $_POST["post_status"]];
+    "post_author_id" => $_SESSION["user_id"], "post_image" => $post_image, "post_tags" => $_POST["post_tags"],
+    "post_content" => $_POST["post_content"], "post_status" => $_POST["post_status"]];
 	insertPost($values, $pdo);
 }
 $query = $pdo->prepare("SELECT * from category");
@@ -28,10 +28,6 @@ $query->execute();
             ?>
         </select>
     </div>
-	<div class = "form-group">
-		<label for = "post_author">Post Author</label>
-		<input type="text" class = "form-control" name="post_author" id = "post_author">
-	</div>
 	<div class = "form-group">
 		<label for = "post_image">Post Image</label>
 		<input type="file" name="post_image">

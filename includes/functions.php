@@ -160,10 +160,10 @@ function insertPost($values, $pdo) { // adding a post
         $v = filterInput($v);
     }
     try {
-        $query = $pdo->prepare("INSERT into posts (post_category_id, post_title, post_author, post_date, post_image, post_content, post_tags, post_status) VALUES (:cat_id, :ttl, :auth, now(), :img, :cnt, :tag, :stat)");
+        $query = $pdo->prepare("INSERT into posts (post_category_id, post_title, post_author_id, post_date, post_image, post_content, post_tags, post_status) VALUES (:cat_id, :ttl, :auth, now(), :img, :cnt, :tag, :stat)");
         $query->bindParam(":cat_id", $values["post_cat_id"]);
         $query->bindParam(":ttl", $values["post_title"]);
-        $query->bindParam(":auth", $values["post_author"]);
+        $query->bindParam(":auth", $values["post_author_id"]);
         $query->bindParam(":img", $values["post_image"]);
         $query->bindParam(":cnt", $values["post_content"]);
         $query->bindParam(":tag", $values["post_tags"]);
@@ -258,13 +258,13 @@ function editPost(array $values, $pdo) { // editing a post
         $v = trim($v);
     }
     try {
-        $sql = "UPDATE posts SET post_category_id = :cat_id, post_title = :ttl, post_author = :auth, post_date = now(), ";
+        $sql = "UPDATE posts SET post_category_id = :cat_id, post_title = :ttl, post_author_id = :auth, post_date = now(), ";
         $sql .= "post_image = :img, post_content = :cnt, post_tags = :tgs, post_status = :stat ";
         $sql .= "where post_id = :id";
         $query = $pdo->prepare($sql);
         $query->bindParam(":cat_id", $values["cat_id"]);
         $query->bindParam(":ttl", $values["title"]);
-        $query->bindParam(":auth", $values["author"]);
+        $query->bindParam(":auth", $values["post_author_id"]);
         $query->bindParam(":img", $values["image"]);
         $query->bindParam(":cnt", $values["content"]);
         $query->bindParam(":tgs", $values["tags"]);

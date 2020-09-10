@@ -34,13 +34,14 @@
         <?php
         while ($row = $select_all->fetch(PDO::FETCH_LAZY)) {
             $cat_title = $row["cat_title"] ?? "Non existent";
+            $post_author = $row["post_author"] ?? "Non existent";
             ?>
             <tr>
                 <td><input class="checkBoxes" type="checkbox" name = "checkBoxArray[]" value = <?=$row["post_id"]?>></td>
                 <td><?=htmlspecialchars($row["post_id"])?></td>
                 <td><?=htmlspecialchars($cat_title)?></td>
                 <td><?=htmlspecialchars($row["post_title"])?></td>
-                <td><?=htmlspecialchars($row["post_author"])?></td>
+                <td><?=htmlspecialchars($post_author)?></td>
                 <td><?=htmlspecialchars($row["post_date"])?></td>
                 <td><img width = "150" src="../images/<?=$row["post_image"]?>" alt = "Image"></td>
                 <td><?=htmlspecialchars($row["post_content"])?></td>
