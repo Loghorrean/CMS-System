@@ -7,8 +7,29 @@ if (isset($_GET["p_id"])) {
     $row = findPostsById($_GET["p_id"], $pdo);
 }
 if (isset($_POST["edit_post"])) {
-    $post_image = $_FILES["post_image"]["name"];
-    $post_image_temp = $_FILES["post_image"]["tmp_name"];
+    $upload_dir = "../images/"; // upload directory
+    $allowed_types = ["image/jpeg", "image/jpg", "image/png"]; // types that can be uploaded
+    $post_image = basename($_FILES["post_image"]["name"]); // original file name
+    $post_image_temp = $_FILES["post_image"]["tmp_name"]; // temporary file name on client's computer
+    $post_image_type = $_FILES["post_image"]["type"]; // type of uploaded file
+    $post_image_size = $_FILES["post_image"]["size"]; // size of uploaded file
+    $checked = false;
+    if ($post_image_size > MAX_FILE_SIZE) {
+        $_SESSION["error"] = "Invalid file size (max = 5mb)!";
+        header("Location: posts.php");
+        exit();
+    }
+    for ($i = 0; $i < count($allowed_types); $i++) {
+        if ($post_image_type == $allowed_types[$i]) {
+            $checked = true;
+            break;
+        }
+    }
+    if (!$checked) {
+        $_SESSION["error"] = "Invalid file type!";
+        header("Location: posts.php");
+        exit();
+    }
     move_uploaded_file($post_image_temp, "../images/{$post_image}");
     if (empty($post_image)) {
         $query = $pdo->prepare("SELECT post_image from posts where post_id = :id");

@@ -159,7 +159,7 @@ function insertPost($values, $pdo) { // adding a post
         $v = filterInput($v);
     }
     try {
-        $sql = "INSERT into posts (post_category_id, post_title, post_author_id, post_date, post_image, post_content, post_content, post_tags, post_content) ";
+        $sql = "INSERT into posts (post_category_id, post_title, post_author_id, post_date, post_image, post_content, post_tags, post_status) ";
         $sql .= "VALUES (:cat_id, :ttl, :auth_id, now(), :img, :cnt, :tag, :stat)";
         $query = $pdo->prepare($sql);
         $query->execute($values);
@@ -661,4 +661,28 @@ function registerUser($pdo, $values) {
     $_SESSION["user_role"] = "subscriber";
     $_SESSION["name"] = $username;
     return true;
+}
+
+function checkFileSize(int $fileSize, int $maxSize) {
+    if ($fileSize > $maxSize) {
+        $maxSizeMb = floor($maxSize / 1024 / 1024);
+        $_SESSION["error"] = "Invalid file size (max = {$maxSizeMb})!";
+        return false;
+    }
+    return true;
+}
+
+function checkFileType(string $fileType, array $types) {
+    $checked = false;
+    for($i = 0; $i < count($types); $i++) {
+        if ($fileType == $types[$i]) {
+            $checked = true;
+            break;
+        }
+    }
+    return $checked;
+}
+
+function uploadFile(string $dir, string $filename, string $temp_filename) {
+
 }
