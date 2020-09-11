@@ -1,11 +1,33 @@
 <?php
+define("MAX_FILE_SIZE", 5000000);
 if (isset($_POST["create_post"])) {
-    $post_image = $_FILES["post_image"]["name"];
-    $post_image_temp = $_FILES["post_image"]["tmp_name"];
-    move_uploaded_file($post_image_temp, "../images/$post_image");
-    $values = ["post_title" => $_POST["post_title"], "post_cat_id" => $_POST["post_category_id"],
-    "post_author_id" => $_SESSION["user_id"], "post_image" => $post_image, "post_tags" => $_POST["post_tags"],
-    "post_content" => $_POST["post_content"], "post_status" => $_POST["post_status"]];
+    $upload_dir = "../images/"; // upload directory
+    $allowed_types = ["image/jpeg", "image/jpg", "image/png"]; // types that can be uploaded
+    $post_image = basename($_FILES["post_image"]["name"]); // original file name
+    $post_image_temp = $_FILES["post_image"]["tmp_name"]; // temporary file name on client's computer
+    $post_image_type = $_FILES["post_image"]["type"]; // type of uploaded file
+    $post_image_size = $_FILES["post_image"]["size"]; // size of uploaded file
+    $checked = false;
+    if ($post_image_size > MAX_FILE_SIZE) {
+        $_SESSION["error"] = "Invalid file size (max = 5mb)!";
+        header("Location: posts.php");
+        exit();
+    }
+    for ($i = 0; $i < count($allowed_types); $i++) {
+        if ($post_image_type == $allowed_types[$i]) {
+            $checked = true;
+            break;
+        }
+    }
+    if (!$checked) {
+        $_SESSION["error"] = "Invalid file type!";
+        header("Location: posts.php");
+        exit();
+    }
+    move_uploaded_file($post_image_temp, $upload_dir.$post_image);
+    $values = [":cat_id" => $_POST["post_category_id"], ":ttl" => $_POST["post_title"],
+    ":auth_id" => $_SESSION["user_id"], ":img" => $post_image, ":cnt" => $_POST["post_content"],
+    ":tag" => $_POST["post_content"], ":stat" => $_POST["post_status"]];
 	insertPost($values, $pdo);
 }
 $query = $pdo->prepare("SELECT * from category");
