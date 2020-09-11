@@ -147,7 +147,6 @@ function checkPassword(string $password) {
 function filterInput($value) {
     $value = trim($value);
     $value = stripslashes($value);
-    $value = htmlspecialchars($value);
     return $value;
 }
 
@@ -160,15 +159,10 @@ function insertPost($values, $pdo) { // adding a post
         $v = filterInput($v);
     }
     try {
-        $query = $pdo->prepare("INSERT into posts (post_category_id, post_title, post_author_id, post_date, post_image, post_content, post_tags, post_status) VALUES (:cat_id, :ttl, :auth, now(), :img, :cnt, :tag, :stat)");
-        $query->bindParam(":cat_id", $values["post_cat_id"]);
-        $query->bindParam(":ttl", $values["post_title"]);
-        $query->bindParam(":auth", $values["post_author_id"]);
-        $query->bindParam(":img", $values["post_image"]);
-        $query->bindParam(":cnt", $values["post_content"]);
-        $query->bindParam(":tag", $values["post_tags"]);
-        $query->bindParam(":stat", $values["post_status"]);
-        $query->execute();
+        $sql = "INSERT into posts (post_category_id, post_title, post_author_id, post_date, post_image, post_content, post_content, post_tags, post_content) ";
+        $sql .= "VALUES (:cat_id, :ttl, :auth_id, now(), :img, :cnt, :tag, :stat)";
+        $query = $pdo->prepare($sql);
+        $query->execute($values);
         $query = NULL;
         $_SESSION["success"] = "Post added!";
         header("Location: posts.php");
@@ -235,13 +229,13 @@ function deletePost(int $p_id, $pdo) {
 /* Edit functions */
 
 
-function editCategory(string $cat_title, int $cat_id, $pdo) { // editing a category
-    $cat_title = trim($cat_title);
+function editCategory($values, $pdo) { // editing a category
+    foreach($values as &$v) {
+        $v = filterInput($v);
+    }
 	try {
         $query = $pdo->prepare("UPDATE category SET cat_title = :ttl where category.cat_id = :id");
-        $query->bindParam(":ttl", $cat_title);
-        $query->bindParam(":id", $cat_id);
-        $query->execute();
+        $query->execute($values);
         $query = NULL;
         $_SESSION["success"] = "Category successfully edited!";
         header("Location: categories.php");
@@ -660,10 +654,7 @@ function registerUser($pdo, $values) {
     $sql = "INSERT into users (username, user_password, user_email, user_role, randSalt) ";
     $sql .= "VALUES (:name, :pass, :mail, 'subscriber', :salt)";
     $query = $pdo->prepare($sql);
-    foreach($values as $k => &$v) {
-        $query->bindParam($k, $v);
-    }
-    $query->execute();
+    $query->execute($values);
     $query = NULL;
     $_SESSION["success"] = "Successful registration";
     $_SESSION["user_id"] = $pdo->lastInsertId();

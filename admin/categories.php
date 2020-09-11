@@ -1,17 +1,13 @@
 <?php
-error_reporting(E_ALL);
-ini_set("error_log", "log.txt");
-ini_set("log_errors", "true");
 require_once("includes/admin_header.php");
-$select_all = $pdo->prepare("SELECT * from category");
-$select_all->execute(); // select_all contains all rows from the category table
 
 if (!isset($_SESSION["user_id"])) {
     header("Location: ../");
     exit();
 }
 
-
+$select_all = $pdo->prepare("SELECT * from category");
+$select_all->execute(); // select_all contains all rows from the category table
 
 if (isset($_POST["submit_add"])) { // add button
     if (empty($_POST["cat_title"])) {
@@ -30,7 +26,8 @@ if (isset($_POST["submit_edit"])) { // edit button
         header("Location: categories.php");
         return;
     }
-    editCategory($_POST["cat_title"], $_POST["cat_id"], $pdo);
+    $values = [":ttl" => $_POST["cat_title"], ":id" => $_POST["cat_id"]];
+    editCategory($values, $pdo);
     return;
 }
 
