@@ -395,7 +395,6 @@ function showPost($row, $post_content, $read_more = false) {
         echo '<span class="glyphicon glyphicon-chevron-right"></span>';
         echo '</a>';
     }
-    echo '<hr>';
 }
 
 function insertComment(array $values, $pdo) { // inserting a comment

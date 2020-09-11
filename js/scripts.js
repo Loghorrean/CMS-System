@@ -10,7 +10,6 @@ function doCommentsValidate() {
     } catch(e) {
         return false;
     }
-    return false;
 }
 // validating users
 function doUsersValidate() {
@@ -31,5 +30,23 @@ function doUsersValidate() {
     } catch (e) {
         return false;
     }
-    return false;
+}
+// validating registration
+function doRegisterValidate() {
+    try {
+        let user = document.getElementById('username').value;
+        let mail = document.getElementById('email').value;
+        let pass = document.getElementById('key').value;
+        if (user == null || user == "" || mail == null || mail == "null" || pass == null || pass == "") {
+            alert("All fields must be filled out");
+            return false;
+        }
+        if (mail.indexOf("@") == -1) {
+            alert("Wrong mail format");
+            return false
+        }
+        return true;
+    } catch (e) {
+        return false;
+    }
 }

@@ -25,6 +25,12 @@
                         <input type="checkbox" name="remember" value="1"> Remember me
                     </div>
                 </form>
+                <?php
+                if (!isset($_SESSION["user_id"])) { ?>
+                    <div class = "form-group">
+                    <h4>Don't have an account yet? - <a href = "registration.php">Make one!</a></h4>
+                    </div>
+                <?php } ?>
                 <!-- /.input-group -->
             </div>
 
