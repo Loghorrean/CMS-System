@@ -36,10 +36,19 @@ function doRegisterValidate() {
     try {
         let user = document.getElementById('username').value;
         let mail = document.getElementById('email').value;
-        let pass = document.getElementById('key').value;
-        if (user == null || user == "" || mail == null || mail == "null" || pass == null || pass == "") {
+        let pass1 = document.getElementById('key1').value;
+        let pass2 = document.getElementById('key2').value;
+        if (user == null || user == "" || mail == null || mail == "null" || pass1 == null || pass1 == "" || pass2 == null || pass2 == "") {
             alert("All fields must be filled out");
             return false;
+        }
+        if (pass1 != pass2) {
+            document.getElementById('key2').style.color = "red";
+            alert("Passwords must match");
+            return false;
+        }
+        else {
+            document.getElementById('key2').style.color = "black";
         }
         if (mail.indexOf("@") == -1) {
             alert("Wrong mail format");

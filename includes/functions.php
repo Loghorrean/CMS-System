@@ -622,7 +622,7 @@ function showEditButton($pdo) {
     }
 }
 
-function checkUsersCookie() {
+function checkUsersCookie($pdo) {
     if (empty($_SESSION["user_id"])) {
         if (!empty($_COOKIE["login"]) && !empty($_COOKIE["key"])) {
             $login = $_COOKIE["login"];
@@ -640,4 +640,34 @@ function checkUsersCookie() {
             }
         }
     }
+}
+
+function checkUserExistance($pdo, $username) {
+    $query = $pdo->prepare("SELECT * from users where username = :name");
+    $query->bindParam(":name", $username);
+    $query->execute();
+    $checkuser = $query->fetch(PDO::FETCH_LAZY);
+    if ($checkuser) {
+        $_SESSION["error"] = "Username is already taken, try another";
+        return false;
+    } else {
+        return true;
+    }
+}
+
+function registerUser($pdo, $values) {
+    $username = $values[":name"];
+    $sql = "INSERT into users (username, user_password, user_email, user_role, randSalt) ";
+    $sql .= "VALUES (:name, :pass, :mail, 'subscriber', :salt)";
+    $query = $pdo->prepare($sql);
+    foreach($values as $k => &$v) {
+        $query->bindParam($k, $v);
+    }
+    $query->execute();
+    $query = NULL;
+    $_SESSION["success"] = "Successful registration";
+    $_SESSION["user_id"] = $pdo->lastInsertId();
+    $_SESSION["user_role"] = "subscriber";
+    $_SESSION["name"] = $username;
+    return true;
 }

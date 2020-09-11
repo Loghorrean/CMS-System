@@ -6,13 +6,16 @@ if (isset($_POST["submitReg"])) {
         header("Location: registration.php");
         exit();
     }
-    $query = $pdo->prepare("SELECT * from users where username = :name");
-    $query->bindParam(":name", $_POST["username"]);
-    $query->execute();
-    $checkuser = $query->fetch(PDO::FETCH_LAZY);
-    if ($checkuser) {
-        $_SESSION["error"] = "Username already taken, try another!";
+    if (!checkUserExistance($pdo, $_POST["username"])) {
         header("Location: registration.php");
+        exit();
+    }
+    $salt = generateSalt();
+    $password = hash("md5", $salt.$_POST["password"]);
+    $values = [":name" => $_POST["username"], ":pass" => $password, ":mail" => $_POST["email"],
+        ":salt" => $salt];
+    if (registerUser($pdo, $values)) {
+        header("Location: ./");
         exit();
     }
 }
@@ -44,7 +47,11 @@ if (isset($_POST["submitReg"])) {
                                 </div>
                                 <div class="form-group">
                                     <label for="password" class="sr-only">Password</label>
-                                    <input type="password" name="password" id="key" class="form-control" placeholder="Password">
+                                    <input type="password" name="password" id="key1" class="form-control" placeholder="Password">
+                                </div>
+                                <div class="form-group">
+                                    <label for="password" class="sr-only">Password</label>
+                                    <input type="password" name="password" id="key2" class="form-control" placeholder="Repeat password">
                                 </div>
                                 <input onclick="return doRegisterValidate();" type="submit" name="submitReg" id="btn-login" class="btn btn-custom btn-lg btn-block" value="Register">
                             </form>
