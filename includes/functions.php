@@ -683,7 +683,7 @@ function checkFileType(string $fileType, array $types) {
     return $checked;
 }
 
-function uploadFile(string $uploadDir, string $fileSelect, string $page, int $maxFileSize, array $allowedTypes) {
+function uploadFile(string $uploadDir, string $fileSelect, string $page, int $maxFileSize = 5000000, array $allowedTypes) {
     if (!empty($_FILES[$fileSelect]["name"])) {
         $post_image = basename($_FILES[$fileSelect]["name"]);
         $target_file = $uploadDir . $post_image;

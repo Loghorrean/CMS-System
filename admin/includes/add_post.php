@@ -1,5 +1,4 @@
 <?php
-define("MAX_FILE_SIZE", 5000000);
 if (isset($_POST["create_post"])) {
     $upload_dir = "../images/"; // upload directory
     $post_image = uploadFile($upload_dir, "post_image", "posts.php", MAX_FILE_SIZE, ["jpeg", "jpg", "png"]);

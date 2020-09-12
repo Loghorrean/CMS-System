@@ -6,6 +6,7 @@ ini_set("error_log", "log.txt");
 ini_set("log_errors", "true");
 require_once("../includes/db.php");
 require_once("../includes/functions.php");
+define("MAX_FILE_SIZE", 5000000);
 ?>
 <!DOCTYPE html>
 <html lang="en">
