@@ -683,6 +683,23 @@ function checkFileType(string $fileType, array $types) {
     return $checked;
 }
 
-function uploadFile(string $dir, string $filename, string $temp_filename) {
-
+function uploadFile(string $uploadDir, string $fileSelect, string $page, int $maxFileSize, array $allowedTypes) {
+    if (!empty($_FILES[$fileSelect]["name"])) {
+        $post_image = basename($_FILES[$fileSelect]["name"]);
+        $target_file = $uploadDir . $post_image;
+        $post_image_type = strtolower(pathinfo($target_file, PATHINFO_EXTENSION)); // type of uploaded file
+        $post_image_temp = $_FILES[$fileSelect]["tmp_name"]; // temporary file name on client's computer
+        $post_image_size = $_FILES[$fileSelect]["size"]; // size of uploaded file
+        if (!checkFileSize($post_image_size, $maxFileSize)) {
+            header("Location: ".$page);
+            exit();
+        }
+        if (!checkFileType($post_image_type, $allowedTypes)) {
+            $_SESSION["error"] = "Unallowed file type!";
+            header("Location: ".$page);
+            exit();
+        }
+        move_uploaded_file($post_image_temp, $target_file);
+        return $post_image;
+    }
 }
