@@ -5,13 +5,13 @@ if (isset($_GET["p_id"])) {
         header("Location: ./");
         exit();
     }
-    $sql = "SELECT users.username as 'username', posts.*, (SELECT count(post_id) from posts where post_id = :id and post_status = 'published') as 'count' from posts ";
+    $sql = "SELECT users.username as 'username', posts.* from posts ";
     $sql .= "left join users on users.user_id = posts.post_author_id where post_id = :id and post_status = 'published'";
     $query = $pdo->prepare($sql);
-    $query->bindParam(":id", $_GET["p_id"]);
-    $query->execute();
+    $query->execute(array(":id" => $_GET["p_id"]));
     $row = $query->fetch(PDO::FETCH_LAZY);
-    if ($row["count"] == 0) {
+    if (!$row) {
+//        http_response_code(404);
         header("Location: ./");
         exit();
     }
