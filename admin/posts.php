@@ -2,7 +2,7 @@
 require_once("includes/admin_header.php");
 $sql = "SELECT category.cat_title as 'cat_title', users.username as 'post_author', posts.* from posts ";
 $sql .= "left join category on posts.post_category_id = category.cat_id ";
-$sql .= "left join users on posts.post_author_id = users.user_id";
+$sql .= "left join users on posts.post_author_id = users.user_id order by posts.post_id DESC";
 $select_all = $pdo->prepare($sql);
 $select_all->execute(); // select_all contains all rows from the category table
 
