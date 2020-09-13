@@ -536,8 +536,7 @@ function showDeleteUserForm($u_id, $pdo) {
 function deleteUser($u_id, $pdo) {
     try {
         $query = $pdo->prepare("DELETE from users where user_id = :id");
-        $query->bindParam(":id", $u_id);
-        $query->execute();
+        $query->execute(array(":id", $u_id));
         $query = NULL;
         $_SESSION["success"] = "User deleted";
         header("Location: users.php");
@@ -562,9 +561,7 @@ function generateSalt()
 function setPostStatus(string $post_status, int $p_id, $pdo) {
     try {
         $query = $pdo->prepare("UPDATE posts set post_status = :stat where post_id = :id");
-        $query->bindParam(":stat", $post_status);
-        $query->bindParam(":id", $p_id);
-        $query->execute();
+        $query->execute(array(":stat" => $post_status, ":id" => $p_id));
         return true;
     } catch (PDOException $e) {
         $_SESSION["error"] = "Something went wrong: {$e->getMessage()}";
@@ -576,8 +573,7 @@ function setPostStatus(string $post_status, int $p_id, $pdo) {
 function showEditButton($pdo) {
     if (isset($_SESSION["user_id"]) && isset($_GET["p_id"])) {
         $stmt = $pdo->prepare("SELECT post_author_id from posts where post_id = :id");
-        $stmt->bindParam(":id", $_GET["p_id"]);
-        $stmt->execute();
+        $stmt->execute(array(":id" => $_GET["p_id"]));
         $user = $stmt->fetch(PDO::FETCH_LAZY);
         if ($_SESSION["user_id"] == $user["post_author_id"] || $_SESSION["user_role"] == "admin") {
             return true;
@@ -597,9 +593,7 @@ function checkUsersCookie($pdo) {
             $login = $_COOKIE["login"];
             $key = $_COOKIE["key"];
             $query = $pdo->prepare("SELECT * from users where username = :nam and cookie = :cook");
-            $query->bindParam(":nam", $login);
-            $query->bindParam(":cook", $key);
-            $query->execute();
+            $query->execute(array(":nam" => $login, ":cook" => $key));
             $user = $query->fetch(PDO::FETCH_LAZY);
             if (!empty($user)) {
                 $_SESSION["name"] = $user["username"];
