@@ -6,6 +6,9 @@ if (isset($_GET["p_id"])) {
     }
     $row = findPostsById($_GET["p_id"], $pdo);
 }
+$post_status = $row["post_status"];
+$post_cat_id = $row["post_category_id"];
+
 if (isset($_POST["edit_post"])) {
     $upload_dir = "../images/"; // upload directory
     $post_image = uploadFile($upload_dir, "post_image", "posts.php", MAX_FILE_SIZE, ["jpeg", "jpg", "png"]);
@@ -15,17 +18,12 @@ if (isset($_POST["edit_post"])) {
         $query->execute();
         $post_image = $query->fetch(PDO::FETCH_LAZY)["post_image"];
     }
-    $values = ["post_id" => $_POST["post_id"], "title" => $_POST["post_title"], "cat_id" => $_POST["post_category_id"],
-    "post_author_id" => $_SESSION["user_id"], "image" => $post_image, "tags" => $_POST["post_tags"],
-    "content" => $_POST["post_content"], "status" => $_POST["post_status"]];
+    $values = [":cat_id" => $_POST["post_category_id"], ":ttl" => $_POST["post_title"],
+    ":auth" => $_SESSION["user_id"], ":img" => $post_image, ":tgs" => $_POST["post_tags"],
+    ":cnt" => $_POST["post_content"], ":stat" => $_POST["post_status"], ":id" => $_POST["post_id"]];
     editPost($values, $pdo);
 }
-$query = $pdo->prepare("SELECT * from posts where post_id = :id"); // to fill the edit post form with values
-$query->bindParam(":id", $_GET["p_id"]);
-$query->execute();
-$row = $query->fetch(PDO::FETCH_LAZY);
-$post_status = $row["post_status"];
-$post_cat_id = $row["post_category_id"];
+
 $categories = $pdo->prepare("SELECT * from category"); // to dynamically view categories
 $categories->execute();
 ?>
@@ -66,7 +64,6 @@ $categories->execute();
             <option value="draft" <?=$selected = $post_status == "draft" ? "selected" : ""?>>Draft</option>
             <option value="published" <?=$selected = $post_status == "published" ? "selected" : ""?>>Published</option>
         </select>
-<!--        <input type="text" id = "post_status" class = "form-control" name="post_status" value="--><?//=htmlspecialchars($row["post_status"])?><!--">-->
     </div>
     <div class = "form-group">
         <input type = "hidden" name = "post_id" value = "<?=$row["post_id"]?>">

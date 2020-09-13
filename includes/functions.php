@@ -158,6 +158,7 @@ function insertPost($values, $pdo) { // adding a post
     foreach($values as &$v) {
         $v = filterInput($v);
     }
+    unset($v);
     try {
         $sql = "INSERT into posts (post_category_id, post_title, post_author_id, post_date, post_image, post_content, post_tags, post_status) ";
         $sql .= "VALUES (:cat_id, :ttl, :auth_id, now(), :img, :cnt, :tag, :stat)";
@@ -233,6 +234,7 @@ function editCategory($values, $pdo) { // editing a category
     foreach($values as &$v) {
         $v = filterInput($v);
     }
+    unset($v);
 	try {
         $query = $pdo->prepare("UPDATE category SET cat_title = :ttl where category.cat_id = :id");
         $query->execute($values);
@@ -249,22 +251,15 @@ function editCategory($values, $pdo) { // editing a category
 
 function editPost(array $values, $pdo) { // editing a post
     foreach ($values as &$v) {
-        $v = trim($v);
+        $v = filterInput($v);
     }
+    unset($v);
     try {
         $sql = "UPDATE posts SET post_category_id = :cat_id, post_title = :ttl, post_author_id = :auth, post_date = now(), ";
         $sql .= "post_image = :img, post_content = :cnt, post_tags = :tgs, post_status = :stat ";
         $sql .= "where post_id = :id";
         $query = $pdo->prepare($sql);
-        $query->bindParam(":cat_id", $values["cat_id"]);
-        $query->bindParam(":ttl", $values["title"]);
-        $query->bindParam(":auth", $values["post_author_id"]);
-        $query->bindParam(":img", $values["image"]);
-        $query->bindParam(":cnt", $values["content"]);
-        $query->bindParam(":tgs", $values["tags"]);
-        $query->bindParam(":stat", $values["status"]);
-        $query->bindParam(":id", $values["post_id"]);
-        $query->execute();
+        $query->execute($values);
         $query = NUll;
         $_SESSION["success"] = "Post edited";
         header("Location: posts.php");
@@ -278,19 +273,14 @@ function editPost(array $values, $pdo) { // editing a post
 
 function editUser($values, $pdo, $path = "users.php") {
     foreach($values as &$v) {
-        $v = trim($v);
+        $v = filterInput($v);
     }
+    unset($v);
     try {
         $sql = "UPDATE users SET username = :nam, user_firstname = :fname, user_lastname = :lname, ";
         $sql .= "user_email = :mail, user_role = :role where user_id = :id";
         $query = $pdo->prepare($sql);
-        $query->bindParam(":nam", $values["username"]);
-        $query->bindParam(":fname", $values["firstname"]);
-        $query->bindParam(":lname", $values["lastname"]);
-        $query->bindParam(":mail", $values["email"]);
-        $query->bindParam(":role", $values["role"]);
-        $query->bindParam(":id", $values["user_id"]);
-        $query->execute();
+        $query->execute($values);
         $query = NULL;
         $_SESSION["success"] = "User edited";
         header("Location: {$path}");
@@ -392,23 +382,21 @@ function showPost($row, $post_content, $read_more = false) {
 }
 
 function insertComment(array $values, $pdo) { // inserting a comment
-    foreach($values as $v) {
-        trim($v);
+    foreach($values as &$v) {
+        $v = filterInput($v);
     }
+    unset($v);
     try {
         $sql = "INSERT INTO comments (comment_post_id, comment_author_id, ";
         $sql .= "comment_content, comment_status, comment_date";
-        $sql .= ") VALUES (:post_id, :auth, :cont, 'Unapproved', now())";
+        $sql .= ") VALUES (:p_id, :auth_id, :cont, 'Unapproved', now())";
         $query = $pdo->prepare($sql);
-        $query->bindParam(":post_id", $values["post_id"]);
-        $query->bindParam(":auth", $_SESSION["username"]);
-        $query->bindParam(":cont", $values["comment_content"]);
-        $query->execute();
-        $query = $pdo->prepare("UPDATE posts SET post_comment_count = post_comment_count + 1 where post_id = :id");
-        $query->bindParam(":id", $values["post_id"]);
+        $query->execute($values);
+        $query = $pdo->prepare("UPDATE posts SET post_comment_count = post_comment_count + 1 where post_id = :p_id");
+        $query->bindParam("p_id", $values[":p_id"]);
         $query->execute();
         $_SESSION["success"] = "Comment is waiting to be approved!";
-        header("Location: post.php?p_id={$values["post_id"]}");
+        header("Location: post.php?p_id={$values[":p_id"]}");
         exit();
     }
     catch (PDOException $e) {
@@ -438,11 +426,9 @@ function showDeleteCommentForm($com_id, $pdo) { // showing a form to delete a co
 function deleteComment($com_id, $com_post_id, $pdo) { // deleting a comment
     try {
         $query = $pdo->prepare("DELETE from comments where comment_id = :id");
-        $query->bindParam(":id", $com_id);
-        $query->execute();
+        $query->execute(array(":id" => $com_id));
         $query = $pdo->prepare("UPDATE posts SET post_comment_count = post_comment_count - 1 where post_id = :id");
-        $query->bindParam(":id", $com_post_id);
-        $query->execute();
+        $query->execute(array(":id" => $com_post_id));
         $query = NULL;
         $_SESSION["success"] = "Comment deleted!";
         header("Location: comments.php");
@@ -473,8 +459,7 @@ function showApproveForm($com_id, $pdo) { // showing the form to approve comment
 function approveComment($com_id, $pdo) {
     try {
         $query = $pdo->prepare("UPDATE comments set comment_status = 'Approved' where comment_id = :id");
-        $query->bindParam(":id", $com_id);
-        $query->execute();
+        $query->execute(array(":id" => $com_id));
         $_SESSION["success"] = "Comment approved!";
         header("Location: comments.php");
         exit();
@@ -504,8 +489,7 @@ function showUnapproveForm($com_id, $pdo) { // showing the form to unapprove com
 function unapproveComment($com_id, $pdo) {
     try {
         $query = $pdo->prepare("UPDATE comments set comment_status = 'Unapproved' where comment_id = :id");
-        $query->bindParam(":id", $com_id);
-        $query->execute();
+        $query->execute(array(":id" => $com_id));
         $_SESSION["success"] = "Comment unapproved!";
         header("Location: comments.php");
         exit();
@@ -516,21 +500,12 @@ function unapproveComment($com_id, $pdo) {
     }
 }
 
-function insertUser($pdo) {
+function insertUser($values, $pdo) {
     $sql = "INSERT into users (username, user_password, user_firstname, user_lastname, user_email, user_role, randSalt) ";
     $sql .= "VALUES (:nm, :pwd, :fname, :lname, :mail, :role, :salt)";
-    $salt = generateSalt();
-    $password = hash("md5", $salt.$_POST["user_password"]);
     try {
         $query = $pdo->prepare($sql);
-        $query->bindParam(":nm", $_POST["username"]);
-        $query->bindParam(":pwd", $password);
-        $query->bindParam(":fname", $_POST["user_firstname"]);
-        $query->bindParam(":lname", $_POST["user_lastname"]);
-        $query->bindParam(":mail", $_POST["user_email"]);
-        $query->bindParam(":role", $_POST["user_role"]);
-        $query->bindParam(":salt", $salt);
-        $query->execute();
+        $query->execute($values);
         $_SESSION["success"] = "User added";
         header("Location: users.php");
         exit();

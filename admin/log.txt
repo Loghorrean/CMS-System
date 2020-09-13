@@ -9,3 +9,11 @@
 [12-Sep-2020 01:02:09 Europe/Berlin] SQLSTATE[21S01]: Insert value list does not match column list: 1136 Column count doesn't match value count at row 1
 [12-Sep-2020 01:03:06 Europe/Berlin] SQLSTATE[21S01]: Insert value list does not match column list: 1136 Column count doesn't match value count at row 1
 [12-Sep-2020 09:10:03 Europe/Berlin] PHP Parse error:  syntax error, unexpected '$', expecting variable (T_VARIABLE) in E:\XAMPP\htdocs\scripts\cms\includes\functions.php on line 686
+[13-Sep-2020 11:28:03 Europe/Berlin] SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens
+[13-Sep-2020 11:29:57 Europe/Berlin] PHP Notice:  Undefined variable: password in E:\XAMPP\htdocs\scripts\cms\admin\includes\add_user.php on line 9
+[13-Sep-2020 11:29:57 Europe/Berlin] SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens
+[13-Sep-2020 11:30:25 Europe/Berlin] PHP Parse error:  syntax error, unexpected '$values' (T_VARIABLE) in E:\XAMPP\htdocs\scripts\cms\admin\includes\add_user.php on line 8
+[13-Sep-2020 11:30:57 Europe/Berlin] SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens
+[13-Sep-2020 11:31:14 Europe/Berlin] SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens
+[13-Sep-2020 11:35:01 Europe/Berlin] SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens
+[13-Sep-2020 11:42:37 Europe/Berlin] PHP Notice:  Undefined index: password in E:\XAMPP\htdocs\scripts\cms\admin\includes\add_user.php on line 8

@@ -24,8 +24,6 @@ if (isset($_POST["submit_unapprove"])) {
     return;
 }
 ?>
-
-
     <body>
 <div id="wrapper">
     <?php

@@ -18,13 +18,7 @@ if (isset($_GET["p_id"])) {
 }
 
 if (isset($_POST["create_comment"])) {
-    $values = ["post_id" => $_GET["p_id"], "comment_email" => $_POST["comment_email"]];
-    $values["comment_author"] = $_POST["comment_author"];
-    $values["comment_content"] = $_POST["comment_content"];
-    if (!checkMail($_POST["comment_email"])) {
-        header("Location: post.php?p_id={$values["post_id"]}");
-        return;
-    }
+    $values = [":p_id" => $_GET["p_id"], ":auth_id" => $_SESSION["user_id"], ":cont" => $_POST["comment_content"]];
     insertComment($values, $pdo);
     return;
 }

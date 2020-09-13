@@ -1,14 +1,18 @@
 <?php
 if (isset($_POST["add_user"])) {
-    if (!checkMail($_POST["user_email"])) {
-        header("Location: users.php?source=add_user");
-        return;
-    }
     if (!checkPassword($_POST["user_password"])) {
         header("Location: users.php?source=add_user");
         return;
     }
-    insertUser($pdo);
+    if (!checkUserExistance($pdo, $_POST["username"])) {
+        header("Location: users.php?source=add_user");
+        return;
+    }
+    $salt = generateSalt();
+    $password = hash("md5", $salt.$_POST["password"]);
+    $values = [":nm" => $_POST["username"], ":pwd" => $password, ":fname" => $_POST["user_firstname"],
+        ":lname" => $_POST["user_lastname"], ":mail" => $_POST["user_email"], ":role" => $_POST["user_role"], ":salt" => $salt];
+    insertUser($values, $pdo);
 }
 ?>
 <form action="" method="POST" enctype="multipart/form-data">

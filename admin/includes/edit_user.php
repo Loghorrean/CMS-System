@@ -7,8 +7,8 @@ if (isset($_GET["u_id"])) {
     $row = findUsersById($_GET["u_id"], $pdo);
 }
 if (isset($_POST["edit_user"])) {
-    $values = ["user_id" => $_POST["user_id"], "username" => $_POST["username"], "role" => $_POST["user_role"],
-        "firstname" => $_POST["user_firstname"], "lastname" => $_POST["user_lastname"], "email" => $_POST["user_email"]];
+    $values = [":nam" => $_POST["username"], ":fname" => $_POST["user_firstname"], ":lname" => $_POST["user_lastname"],
+        ":mail" => $_POST["user_email"], ":role" => $_POST["user_role"], ":id" => $_POST["user_id"]];
     editUser($values, $pdo);
 }
 ?>
@@ -20,9 +20,9 @@ if (isset($_POST["edit_user"])) {
     <div class = "form-group">
         <label for = "user_role">User Role</label><br>
         <select name="user_role" id = "user_role">
-            <option value="admin">Admin</option>
-            <option value="modifier">Modifier</option>
-            <option value="subscriber">Subscriber</option>
+            <option value="admin" <?=$selected = $row["user_role"] == "admin" ? "selected" : ""?>>Admin</option>
+            <option value="modifier" <?=$selected = $row["user_role"] == "modifier" ? "selected" : ""?>>Modifier</option>
+            <option value="subscriber" <?=$selected = $row["user_role"] == "subscriber" ? "selected" : ""?>>Subscriber</option>
         </select>
     </div>
     <div class = "form-group">
