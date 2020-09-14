@@ -6,6 +6,10 @@ checkUsersCookie($pdo);
 <!-- Navigation -->
 <?php
 require_once("includes/navigation.php");
+$sql = "SELECT users.username as 'username', posts.* from posts ";
+$sql .= "left join users on users.user_id = posts.post_author_id where post_status = 'published'";
+$query = $pdo->prepare($sql);
+$query->execute();
 ?>
 <!-- Page Content -->
 <div class="container">
@@ -14,18 +18,20 @@ require_once("includes/navigation.php");
 
         <!-- Blog Entries Column -->
         <div class="col-md-8">
-            <?php
-            $sql = "SELECT users.username as 'username', posts.*, (select count(post_id) from posts where post_status = 'published') as 'count' from posts ";
-            $sql .= "left join users on users.user_id = posts.post_author_id where post_status = 'published'";
-            $query = $pdo->prepare($sql);
-            $query->execute();
-            ?>
             <h1 class="page-header">
                 Main Page
             </h1>
             <!-- First Blog Post -->
             <?php
-                showPosts($query, true, true);
+            $counter = 0;
+            while ($row = $query->fetch(PDO::FETCH_LAZY)) {
+                $row["post_content"] = substr($row["post_content"], 0, 50)."...";
+                showPost($row, true);
+                $counter++;
+            }
+            if ($counter == 0) {
+                echo '<h1 class="text-center">No Published Posts Yet</h1>';
+            }
             ?>
             <!-- Pager -->
             <ul class="pager">

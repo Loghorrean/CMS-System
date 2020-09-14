@@ -30,7 +30,14 @@ require_once("includes/navigation.php");
 
             <!-- First Blog Post -->
             <?php
-                showPosts($query, true, true);
+            $counter = 0;
+            while ($row = $query->fetch(PDO::FETCH_LAZY)) {
+                showPost($row, true);
+                $counter++;
+            }
+            if ($counter == 0) {
+                echo '<h1 class="text-center">No Published Posts Yet</h1>';
+            }
             ?>
             <!-- Pager -->
             <ul class="pager">

@@ -345,35 +345,12 @@ function showDeletePostForm($post_id, $pdo) { // showing the form to delete a po
     echo '</form>';
 }
 
-function showPosts($query, $substr = false, $read_more = false) { // showing posts on the page
-    $counter = 0;
-    while ($row = $query->fetch(PDO::FETCH_LAZY)) {
-        if ($row['count'] == 0 || $row == false) {
-            echo '<h1 class="text-center">No Published Posts Yet, first fall</h1>';
-            exit();
-        }
-        else {
-            if ($substr) {
-                $post_content = (strlen($row["post_content"])) > 50 ? substr($row["post_content"], 0, 50) . "..." : $row["post_content"];
-            } else {
-                $post_content = $row["post_content"];
-            }
-            showPost($row, $post_content, $read_more);
-            $counter++;
-        }
-    }
-    if ($counter == 0) {
-        echo '<h1 class="text-center">No Published Posts Yet, second fall</h1>';
-        exit();
-    }
-}
-
-function showPost($row, $post_content, $read_more = false) {
+function showPost($row, $read_more = false) {
     echo '<h2><a href="post.php?p_id=' . $row["post_id"] . '">' . htmlspecialchars($row["post_title"]) . '</a></h2>';
     echo '<p class = "lead">by <a href="author.php?auth_name='.$row["username"].'">' . htmlspecialchars($row["username"]) . '</a></p><hr>';
     echo '<p><span class="glyphicon glyphicon-time"></span> Posted on ' . htmlspecialchars($row["post_date"]) . '</p><hr>';
     echo '<a href="post.php?p_id=' . $row["post_id"] . '"><img class="img-responsive" src="images/' . $row["post_image"] . '" alt="Loading..."></a><hr>';
-    echo '<p style="font-weight: 700">' . $post_content . '</p>';
+    echo '<p style="font-weight: 700">' . $row["post_content"] . '</p>';
     if ($read_more) {
         echo '<a class="btn btn-primary" href="post.php?p_id='.$row["post_id"].'">Read More ';
         echo '<span class="glyphicon glyphicon-chevron-right"></span>';

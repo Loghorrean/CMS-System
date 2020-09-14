@@ -51,8 +51,7 @@ require_once("includes/navigation.php");
             <div class="col-lg-8">
 
                 <?php
-                $post_content = $post["post_content"];
-                showPost($post, $post_content);
+                showPost($post);
                 if (showEditButton($pdo)) {
                     echo '<a class="btn btn-primary" style="" href="admin/posts.php?source=edit_post&p_id=' . $_GET["p_id"] . '">Edit Post</a>';
                 }
