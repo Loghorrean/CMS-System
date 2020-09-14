@@ -14,6 +14,10 @@ else {
     header("Location: ./");
     exit();
 }
+$sql = "SELECT users.username as 'username', posts.*, (select count(post_id) from posts where post_status = 'published') as 'count' from posts ";
+$sql .= "left join users on users.user_id = posts.post_author_id where post_status = 'published' and users.username = :name";
+$authors_posts = $pdo->prepare($sql);
+$authors_posts->execute(array(":name" => $auth_name));
 ?>
     <!-- Navigation -->
 <?php
@@ -26,20 +30,14 @@ require_once("includes/navigation.php");
 
         <!-- Blog Entries Column -->
         <div class="col-md-8">
-            <?php
-            $sql = "SELECT users.username as 'username', posts.*, (select count(post_id) from posts where post_status = 'published') as 'count' from posts ";
-            $sql .= "left join users on users.user_id = posts.post_author_id where post_status = 'published' and users.username = :name";
-            $query = $pdo->prepare($sql);
-            $query->execute(array(":name" => $auth_name));
-            ?>
             <h1 class="page-header">
                 Posts made by <?=$auth_name?>
             </h1>
             <!-- First Blog Post -->
             <?php
             $counter = 0;
-            while ($row = $query->fetch(PDO::FETCH_LAZY)) {
-                showPost($row, true);
+            while ($post = $authors_posts->fetch(PDO::FETCH_LAZY)) {
+                showPost($post, true);
                 $counter++;
             }
             if ($counter == 0) {
