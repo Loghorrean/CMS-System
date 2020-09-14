@@ -9,12 +9,20 @@ if (isset($_GET["p_id"])) {
     $sql .= "left join users on users.user_id = posts.post_author_id where post_id = :id and post_status = 'published'";
     $query = $pdo->prepare($sql);
     $query->execute(array(":id" => $_GET["p_id"]));
-    $row = $query->fetch(PDO::FETCH_LAZY);
-    if (!$row) {
+    $post = $query->fetch(PDO::FETCH_LAZY);
+    if (!$post) {
 //        http_response_code(404);
         header("Location: ./");
         exit();
     }
+    else {
+        $query = $pdo->prepare("UPDATE posts set view_count = view_count + 1 where post_id = :id");
+        $query->execute(array(":id" => $_GET["p_id"]));
+    }
+}
+else {
+    header("Location: ./");
+    exit();
 }
 
 if (isset($_POST["create_comment"])) {
@@ -43,8 +51,8 @@ require_once("includes/navigation.php");
             <div class="col-lg-8">
 
                 <?php
-                $post_content = $row["post_content"];
-                showPost($row, $post_content);
+                $post_content = $post["post_content"];
+                showPost($post, $post_content);
                 if (showEditButton($pdo)) {
                     echo '<a class="btn btn-primary" style="" href="admin/posts.php?source=edit_post&p_id=' . $_GET["p_id"] . '">Edit Post</a>';
                 }

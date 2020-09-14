@@ -25,6 +25,7 @@
             <th>Tags</th>
             <th>Comment Count</th>
             <th>Status</th>
+            <th>Number of views</th>
             <th>View Post</th>
             <th>Delete Post</th>
             <th>Edit Post</th>
@@ -48,9 +49,10 @@
                 <td><?=$row["post_tags"]?></td>
                 <td><?=$row["post_comment_count"]?></td>
                 <td><?=$row["post_status"]?></td>
-                <td><a href="../post.php?p_id=<?=$row["post_id"]?>">View</a></td>
-                <td><a href="posts.php?delete=<?=$row["post_id"]?>">Delete</a></td>
-                <td><a href="posts.php?source=edit_post&p_id=<?=$row["post_id"]?>">Edit</a></td>
+                <td><?=$row["view_count"]?></td>
+                <td><button><a href="../post.php?p_id=<?=$row["post_id"]?>">View</a></button></td>
+                <td><button><a href="posts.php?delete=<?=$row["post_id"]?>">Delete</a></button></td>
+                <td><button><a href="posts.php?source=edit_post&p_id=<?=$row["post_id"]?>">Edit</a></button></td>
             </tr>
         <?php } ?>
     </tbody>
