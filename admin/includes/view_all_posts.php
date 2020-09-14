@@ -50,9 +50,9 @@
                 <td><?=$row["post_comment_count"]?></td>
                 <td><?=$row["post_status"]?></td>
                 <td><?=$row["view_count"]?></td>
-                <td><button><a href="../post.php?p_id=<?=$row["post_id"]?>">View</a></button></td>
-                <td><button><a href="posts.php?delete=<?=$row["post_id"]?>">Delete</a></button></td>
-                <td><button><a href="posts.php?source=edit_post&p_id=<?=$row["post_id"]?>">Edit</a></button></td>
+                <td><button class = "btn"><a href="../post.php?p_id=<?=$row["post_id"]?>">View</a></button></td>
+                <td><button class = "btn"><a href="posts.php?delete=<?=$row["post_id"]?>">Delete</a></button></td>
+                <td><button class = "btn"><a href="posts.php?source=edit_post&p_id=<?=$row["post_id"]?>">Edit</a></button></td>
             </tr>
         <?php } ?>
     </tbody>

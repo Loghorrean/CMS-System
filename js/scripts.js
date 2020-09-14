@@ -2,7 +2,7 @@
 function doCommentsValidate() {
     try {
         let cont = document.getElementById('comment_content').value;
-        if (cont == null || cont == "") {
+        if (!cont) {
             alert("All fields must be filled out");
             return false;
         }
@@ -18,7 +18,7 @@ function doUsersValidate() {
         let fname = document.getElementById('user_firstname').value;
         let lname = document.getElementById('user_lastname').value;
         let mail = document.getElementById('user_email').value;
-        if (user == null || user == "" || fname == null || fname == "null" || lname == null || lname == "" || mail == null || mail == "") {
+        if (!user || !fname || !lname || !mail) {
             alert("All fields must be filled out");
             return false;
         }
@@ -38,7 +38,7 @@ function doRegisterValidate() {
         let mail = document.getElementById('email').value;
         let pass1 = document.getElementById('key1').value;
         let pass2 = document.getElementById('key2').value;
-        if (user == null || user == "" || mail == null || mail == "null" || pass1 == null || pass1 == "" || pass2 == null || pass2 == "") {
+        if (!user || !mail || !pass1 || !pass2) {
             alert("All fields must be filled out");
             return false;
         }
