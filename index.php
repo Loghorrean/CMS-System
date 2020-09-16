@@ -63,12 +63,6 @@ $query->execute();
                 </li>
                 <?php
                 for($i = 1; $i <= $count_posts; $i++) {
-                    if (isset($_GET["page"]) && $i == $_GET["page"]) {
-                        $current_page = 
-                    }
-                    else {
-                        $current_page =
-                    }
                     echo "<li><a href='index.php?page={$i}'>{$i}</a></li>";
                 }
                 ?>
