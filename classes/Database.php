@@ -1,6 +1,8 @@
 <?php
-require_once("Config.php");
-class Database {
+require_once "Config.php";
+require_once "Traits.php";
+abstract class Database {
+
     const DB_HOST = Config::DB_HOST;
     const DB_PORT = Config::DB_PORT;
     const DB_NAME = Config::DB_NAME;
@@ -33,11 +35,16 @@ class Database {
         return self::$instances[$class];
     }
 
+    public function __toString() {
+        $str = "Database connection: host - ".self::DB_HOST.", port - ".self::DB_PORT.", db name - ".self::DB_NAME;
+        $class = get_called_class();
+        $str .= "<br>Instance of ".$class;
+        return $str;
+    }
+
     public function getInstances() {
         return self::$instances;
     }
 }
-$db1 = Database::getInstance();
-$db2 = Database::getInstance();
 
 

@@ -1,10 +1,11 @@
 <?php
 require_once "Database.php";
-require_once "Traits.php";
-class CrudCategoriesController extends Database {
+require_once "CrudController.php";
+class CrudCategoriesController extends Database implements CrudController {
+
     use basicPdoFunctions;
 
-    public function InsertCategory($values = []) {
+    public function Insert($values = []) {
         if (empty($values)) {
             die("Vi eblan, znachenia pustie");
         }
@@ -12,7 +13,7 @@ class CrudCategoriesController extends Database {
         $this->run($sql, $values);
     }
 
-    public function UpdateCategory($values = []) {
+    public function Update($values = []) {
         if (empty($values)) {
             die("Vi eblan, znachenia pustie");
         }
@@ -20,7 +21,7 @@ class CrudCategoriesController extends Database {
         $this->run($sql, $values);
     }
 
-    public function DeleteCategory($values = []) {
+    public function Delete($values = []) {
         if (empty($values)) {
             die("Vi eblan, znachenia pustie");
         }

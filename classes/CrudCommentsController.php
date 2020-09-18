@@ -1,8 +1,8 @@
 <?php
 require_once "Database.php";
 require_once "CrudPostsController.php";
-require_once "Traits.php";
-class CrudCommentsController extends Database {
+require_once "CrudController.php";
+class CrudCommentsController extends Database implements CrudController {
 
     use basicPdoFunctions;
 
@@ -11,19 +11,21 @@ class CrudCommentsController extends Database {
         echo "<br>CrudCommentsController destructed!<br>";
     }
 
-    public function insertComment($values = []) {
+    public function Insert($values = []) {
+        echo "<br>Insert comment<br>";
         if (empty($values)) {
             die("Vi eblan, znachenia pustie");
         }
         $sql = "INSERT into comments (comment_post_id, comment_author_id, comment_content, comment_status, comment_date) ";
         $sql .= "VALUES (:post_id, :auth_id, :cont, :stat, now())";
         $this->run($sql, $values);
-        $user = CrudPostsController::getInstance();
+        $post = CrudPostsController::getInstance();
+        var_dump($post);
         $sql = "UPDATE posts SET post_comment_count = post_comment_count + 1 where post_id = :id";
-        $user->run($sql, ["id" => $values["post_id"]]);
+        $post->sql($sql, ["id" => $values["post_id"]]);
     }
 
-    public function deleteComment($values = []) {
+    public function Delete($values = []) {
         if (empty($values)) {
             die("Vi eblan");
         }
@@ -31,11 +33,12 @@ class CrudCommentsController extends Database {
         $this->run($sql, ["id" => $values["id"]]);
         $user = CrudPostsController::getInstance();
         $sql = "UPDATE posts SET post_comment_count = post_comment_count - 1 where post_id = :post_id";
-        $user->run($sql, ["post_id" => $values["post_id"]]);
+        $user->sql($sql, ["post_id" => $values["post_id"]]);
+    }
+
+    public function Update($values = []) {
+        $sql = "UPDATE comments SET comment_content = :cont, comment_status = 'Unapproved', ";
+        $sql .= "comment_date = now() where comment_id = :id";
+        $this->run($sql, $values);
     }
 }
-
-
-$cr2 = CrudCommentsController::getInstance();
-$cr2->insertComment(["post_id" => 1, "auth_id" => 7, "cont" => "Huynia", "stat" => "approved"]);
-$cr2->deleteComment(["id" => 50, "post_id" => 1]);

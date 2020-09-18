@@ -1,6 +1,10 @@
 <?php
 require_once("includes/db.php");
 require_once ("includes/header.php");
+require_once ("classes/CrudPostsController.php");
+require_once ("classes/CrudCategoriesController.php");
+require_once ("classes/CrudUsersController.php");
+//$user_controller = CrudUsersController::getInstance();
 checkUsersCookie($pdo);
 ?>
 <!-- Navigation -->
@@ -24,15 +28,11 @@ if (isset($_GET["page"])) {
 else {
     $page_1 = 0;
 }
-$query = $pdo->prepare("SELECT count(*) as 'count' from posts");
-$count_posts = $query->execute();
-$count_posts = $query->fetch(PDO::FETCH_LAZY)["count"];
-$count_posts = ceil($count_posts / 5);
+$post_controller = CrudPostsController::getInstance();
+$count_posts = ceil($post_controller->getRow("SELECT count(*) as 'count' from posts")["count"] / POST_PER_PAGE);
 $sql = "SELECT users.username as 'username', posts.* from posts ";
 $sql .= "left join users on users.user_id = posts.post_author_id where post_status = 'published' LIMIT :page, 5";
-$query = $pdo->prepare($sql);
-$query->bindParam(":page", $page_1, PDO::PARAM_INT);
-$query->execute();
+$posts = $post_controller->getRows($sql, ["page" => [$page_1 => "int"]]);
 ?>
 <!-- Page Content -->
 <div class="container">
@@ -46,14 +46,14 @@ $query->execute();
             </h1>
             <!-- First Blog Post -->
             <?php
-            $counter = 0;
-            while ($row = $query->fetch(PDO::FETCH_LAZY)) {
-                $row["post_content"] = substr($row["post_content"], 0, 50)."...";
-                showPost($row, true);
-                $counter++;
-            }
-            if ($counter == 0) {
+            if (empty($posts)) {
                 echo '<h1 class="text-center">No Published Posts Yet</h1>';
+            }
+            else {
+                foreach($posts as $post) {
+                    $post["post_content"] = substr($post["post_content"], 0, 35)."...";
+                    showPost($post, true);
+                }
             }
             ?>
             <!-- Pager -->
