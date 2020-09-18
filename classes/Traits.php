@@ -19,18 +19,25 @@ trait basicPdoFunctions {
                 $query = $this->prepare($sql);
                 echo "<br>";
                 foreach ($values as $k => &$v) {
-                    if (is_array($v)) {
-                        $key = key($v);
-                        $value = $v[$key];
+                    if (!is_array($v)) {
+                        die("run method expects an array");
+                    }
+                        $var = key($v);
+                        $value = $v[$var];
                         switch($value) {
                             case "int":
-                                $query->bindParam($k, $key, PDO::PARAM_INT);
+                                $query->bindParam($k, $var, PDO::PARAM_INT);
                                 break;
+                            case "bool":
+                                $query->bindParam($k, $var, PDO::PARAM_BOOL);
+                                break;
+                            case "str":
+                            case "date":
+                                $query->bindParam($k, $var, PDO::PARAM_STR);
+                                break;
+                            default:
+                                die("No given or wrong datatype!");
                         }
-                    }
-                    else {
-                        $query->bindParam($k, $v);
-                    }
                 }
                 $query->execute();
                 return $query;
