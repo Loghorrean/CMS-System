@@ -41,6 +41,6 @@ class CrudPostsController extends Database implements CrudController {
     }
 
     public function __destruct() {
-        echo "<br>CrudPostsController destructed!<br>";
+
     }
 }

@@ -6,9 +6,8 @@ class CrudCommentsController extends Database implements CrudController {
 
     use basicPdoFunctions;
 
-    public function __destruct()
-    {
-        echo "<br>CrudCommentsController destructed!<br>";
+    public function __destruct() {
+
     }
 
     public function Insert($values = []) {

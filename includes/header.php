@@ -1,7 +1,11 @@
 <?php
-require_once "includes/functions.php";
-require_once "includes/db.php";
-require_once "includes/main_config.php";
+require_once __DIR__."/functions.php";
+require_once __DIR__."/db.php";
+require_once __DIR__."/main_config.php";
+require_once __DIR__."/../classes/CrudPostsController.php";
+require_once __DIR__."/../classes/CrudCategoriesController.php";
+require_once __DIR__."/../classes/CrudUsersController.php";
+require_once __DIR__."/../classes/CrudCommentsController.php";
 session_start();
 ?>
 <!DOCTYPE html>

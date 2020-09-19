@@ -19,26 +19,31 @@ require_once("includes/navigation.php");
         <div class="col-md-8">
             <?php
             if (isset($_POST["submit"])) {
-                $search = htmlspecialchars($_POST["search"]);
-                $sql = "SELECT users.username as 'username', posts.*, (SELECT count(post_id) from posts where post_tags LIKE :srch and post_status='published') as 'count' from posts ";
+                $keyword = '%'.htmlspecialchars($_POST["search"]).'%';
+                $sql = "SELECT users.username as 'username', posts.* from posts ";
                 $sql .= "left join users on users.user_id = posts.post_author_id ";
                 $sql .= "where post_tags LIKE :srch and post_status = 'published'";
-                $stmt = $pdo->prepare($sql);
-                $keyword = '%'.$search.'%';
-                $stmt->bindParam(":srch", $keyword);
-                $stmt->execute();
+                $posts = CrudPostsController::getInstance()->getRows($sql, ["srch" => [$keyword => "str"]]);
             }
             else {
                 header("Location: ./");
             }
             ?>
             <h1 class="page-header">
-                Search Page<?=$theme = ", theme - ".$_POST["search"] ?? ""?>
+                Search Page<?=$theme = ", theme - ".htmlspecialchars($_POST["search"]) ?? ""?>
             </h1>
 
             <!-- First Blog Post -->
             <?php
-                showPosts($stmt, true, true);
+            if (empty($posts)) {
+                echo '<h1 class="text-center">No Published Posts Yet</h1>';
+            }
+            else {
+                foreach($posts as $post) {
+                    $post["post_content"] = (strlen($post["post_content"]) > 35) ? substr($post["post_content"], 0, 35)."..." : $post["post_content"];
+                    showPost($post, true);
+                }
+            }
             ?>
             <!-- Pager -->
             <ul class="pager">

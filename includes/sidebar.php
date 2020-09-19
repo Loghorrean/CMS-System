@@ -56,10 +56,8 @@
                     <div class="col-lg-12">
                         <ul class="list-unstyled">
                             <?php
-                            $stmt = $pdo->prepare("SELECT * from category");
-                            $stmt->execute();
-                            while($row = $stmt->fetch(PDO::FETCH_LAZY)) {
-                                echo "<li><a href = 'categories.php?cat={$row["cat_id"]}'>{$row["cat_title"]}</a></li>";
+                            foreach ($categories as $category) {
+                                echo "<li><a href = 'categories.php?cat={$category["cat_id"]}'>{$category["cat_title"]}</a></li>";
                             }
                             ?>
                         </ul>

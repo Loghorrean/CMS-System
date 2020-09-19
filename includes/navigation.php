@@ -1,6 +1,5 @@
 <?php
-$categories = $pdo->prepare("SELECT * from category");
-$categories->execute();
+$categories = CrudCategoriesController::getInstance()->getRows("Select * from category");
 $showAdminButton = false;
 if (isset($_SESSION["user_id"]) && $_SESSION["user_role"] === "admin") {
     $showAdminButton = true;
@@ -22,12 +21,12 @@ if (isset($_SESSION["user_id"]) && $_SESSION["user_role"] === "admin") {
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <?php
-                    while($cat = $categories->fetch(PDO::FETCH_LAZY)) {
-                        echo "<li><a href = 'categories.php?cat={$cat["cat_id"]}'>{$cat["cat_title"]}</a></li>";
+                    foreach ($categories as $category) {
+                        echo "<li><a href = 'categories.php?cat={$category["cat_id"]}'>{$category["cat_title"]}</a></li>";
                     }
                     ?>
                     <?php
-                    if ($showAdminButton) {
+                    if ($showAdminButton == true) {
                         echo '<li><a href="admin" style = "font-weight: bold;">Admin</a></li>';
                     }
                     ?>

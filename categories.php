@@ -6,12 +6,11 @@ if (isset($_GET["cat"])) {
         return;
     }
 }
-$sql = "SELECT users.username as 'username', posts.*, (SELECT count(post_id) from posts where post_category_id = :id and post_status = 'published') as 'count' FROM posts ";
+$sql = "SELECT users.username as 'username', posts.* FROM posts ";
 $sql .= "left join users on users.user_id = posts.post_author_id ";
 $sql .= "where post_category_id = :id and post_status = 'published'";
-$query = $pdo->prepare($sql);
-$query->bindParam(":id", $_GET["cat"]);
-$query->execute();
+$values = ["id" => [$_GET["cat"] => "str"]];
+$posts = CrudPostsController::getInstance()->getRows($sql, $values);
 ?>
     <!-- Navigation -->
 <?php
@@ -30,13 +29,14 @@ require_once("includes/navigation.php");
 
             <!-- First Blog Post -->
             <?php
-            $counter = 0;
-            while ($row = $query->fetch(PDO::FETCH_LAZY)) {
-                showPost($row, true);
-                $counter++;
-            }
-            if ($counter == 0) {
+            if (empty($posts)) {
                 echo '<h1 class="text-center">No Published Posts Yet</h1>';
+            }
+            else {
+                foreach($posts as $post) {
+                    $post["post_content"] = (strlen($post["post_content"]) > 35) ? substr($post["post_content"], 0, 35)."..." : $post["post_content"];
+                    showPost($post, true);
+                }
             }
             ?>
             <!-- Pager -->

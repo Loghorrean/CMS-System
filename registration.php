@@ -1,28 +1,32 @@
 <?php
-require_once("includes/db.php");
-require_once("includes/header.php");
+require_once __DIR__."/includes/header.php";
 if (isset($_POST["submitReg"])) {
+    $user_controller = CrudUsersController::getInstance();
     if (!checkPassword($_POST["password"])) {
         header("Location: registration.php");
         exit();
     }
-    if (!checkUserExistance($pdo, $_POST["username"])) {
+    $sql = "SELECT * from users where username = :name";
+    $user = $user_controller->getRow($sql, ["name" => [$_POST["username"] => "str"]]);
+    if ($user !== false) {
+        $_SESSION["error"] = "Username is already taken";
         header("Location: registration.php");
         exit();
     }
     $salt = generateSalt();
     $password = hash("md5", $salt.$_POST["password"]);
-    $values = [":name" => $_POST["username"], ":pass" => $password, ":mail" => $_POST["email"],
-        ":salt" => $salt];
-    if (registerUser($pdo, $values)) {
-        header("Location: ./");
-        exit();
-    }
+    $values = ["name" => [$_POST["username"] => "str"], "pwd" => [$password => "str"],
+        "mail" => [$_POST["email"] => "str"], "salt" => [$salt => "str"], "role" => ["Subscriber" => "str"],
+        "fname" => [NUll => "null"], "lname" => [NULL => "null"], "img" => [NULL => "null"]];
+    echo "<br><br><br>";
+    $user_controller->Insert($values);
+    header("Location: ./");
+    exit();
 }
 ?>
     <!-- Navigation -->
     <?php
-    require_once("includes/navigation.php");
+    require_once __DIR__."/includes/navigation.php";
     ?>
     <!-- Page Content -->
     <div class="container">
@@ -43,7 +47,7 @@ if (isset($_POST["submitReg"])) {
                                 </div>
                                 <div class="form-group">
                                     <label for="email" class="sr-only">Email</label>
-                                    <input type="text" name="email" id="email" class="form-control" placeholder="somebody@example.com">
+                                    <input type="email" name="email" id="email" class="form-control" placeholder="somebody@example.com">
                                 </div>
                                 <div class="form-group">
                                     <label for="password" class="sr-only">Password</label>

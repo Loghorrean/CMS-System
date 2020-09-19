@@ -1,9 +1,6 @@
 <?php
 require_once("includes/db.php");
 require_once ("includes/header.php");
-require_once ("classes/CrudPostsController.php");
-require_once ("classes/CrudCategoriesController.php");
-require_once ("classes/CrudUsersController.php");
 //$user_controller = CrudUsersController::getInstance();
 checkUsersCookie($pdo);
 ?>
@@ -36,9 +33,7 @@ $posts = $post_controller->getRows($sql, ["page" => [$page_1 => "int"]]);
 ?>
 <!-- Page Content -->
 <div class="container">
-
     <div class="row">
-
         <!-- Blog Entries Column -->
         <div class="col-md-8">
             <h1 class="page-header">
@@ -51,7 +46,7 @@ $posts = $post_controller->getRows($sql, ["page" => [$page_1 => "int"]]);
             }
             else {
                 foreach($posts as $post) {
-                    $post["post_content"] = substr($post["post_content"], 0, 35)."...";
+                    $post["post_content"] = (strlen($post["post_content"]) > 35) ? substr($post["post_content"], 0, 35)."..." : $post["post_content"];
                     showPost($post, true);
                 }
             }

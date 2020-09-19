@@ -30,6 +30,6 @@ class CrudCategoriesController extends Database implements CrudController {
     }
 
     public function __destruct() {
-        echo "<br>CrudCategoriesController destructed!<br>";
+
     }
 }

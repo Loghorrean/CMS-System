@@ -15,25 +15,26 @@ trait basicPdoFunctions {
     protected function run($sql, $values = []) {
         try {
             if (!empty($values)) {
-                echo "<br>";
                 $query = $this->prepare($sql);
-                echo "<br>";
                 foreach ($values as $k => &$v) {
                     if (!is_array($v)) {
                         die("run method expects an array");
                     }
                         $var = key($v);
-                        $value = $v[$var];
-                        switch($value) {
+                        $data_type = $v[$var];
+                        switch($data_type) {
                             case "int":
-                                $query->bindParam($k, $var, PDO::PARAM_INT);
+                                $query->bindValue($k, $var, PDO::PARAM_INT);
                                 break;
                             case "bool":
-                                $query->bindParam($k, $var, PDO::PARAM_BOOL);
+                                $query->bindValue($k, $var, PDO::PARAM_BOOL);
                                 break;
-                            case "str":
                             case "date":
-                                $query->bindParam($k, $var, PDO::PARAM_STR);
+                            case "str":
+                                $query->bindValue($k, $var, PDO::PARAM_STR);
+                                break;
+                            case "null":
+                                $query->bindValue($k, null, PDO::PARAM_INT);
                                 break;
                             default:
                                 die("No given or wrong datatype!");
