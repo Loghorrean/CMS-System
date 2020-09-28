@@ -1,6 +1,6 @@
 <?php
-require_once "Config.php";
-require_once "Traits.php";
+require_once __DIR__."/Config.php";
+require_once __DIR__."/Traits.php";
 abstract class Database {
 
     const DB_HOST = Config::DB_HOST;
